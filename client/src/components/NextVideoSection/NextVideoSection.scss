@@ -1,0 +1,15 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+/*====================Styling for the NextVideoSection component==========================*/
+
+.next-video-section{
+    @include desktop{
+        padding-top:40px;
+    }
+
+    &__title{
+        padding-bottom:40px;
+        @extend .label;
+    }
+}

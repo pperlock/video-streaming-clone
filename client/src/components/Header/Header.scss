@@ -1,0 +1,148 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+/*====================Styling for the Header component==========================*/
+
+.header{
+  height:169px;
+  box-sizing:border-box;
+  // Apply appropriate padding to the left and right for a section 
+  @extend .section;
+  padding-bottom:16px;
+
+  @include tablet{
+    // header is flexed to center the nav bar vertically
+    display:flex;
+    align-items:center;
+    //the header height is not responsive and should have a fixed height of 80px
+    height:80px;
+    padding-top:16px;
+  }
+}
+
+.nav-bar{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  // Display the nav bar elements in a row for devices >=tablet size
+  @include tablet{
+    width:100%;
+    flex-direction:row;
+  }
+
+  &__logo{
+    // increase the size of the logo for devices >= tablet size
+    @include tablet{
+      width:133px;
+    }
+
+    &-link{
+      display:flex;
+      align-items:center;
+    }
+  }
+  
+  &--left{
+    height:48px;
+    display:flex;
+
+    @include tablet{
+      // use the margin on the logo to set a consistent distance between elements on the right side 
+      margin-right:120px;
+    }
+
+  }
+
+  &--right{
+    width:100%;
+
+    @include tablet{
+      // put the search box, avatar and the upload button in a row and push them to the right side for devices >=tablet size
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+  }
+
+  &__search{
+    // make the search element relative to place the magnifying glass icon
+    position:relative;
+
+    @include tablet{
+        width:60%;
+    }
+    
+    &-input{
+      // create an input box with (top-padding, bottom-padding, margin-bottom)
+      @include input-text(15px, 15px, 8px);
+      // border box is necssary to include the padding in the 100% width
+      box-sizing:border-box;
+      width:100%;
+      // large left padding to allow for the placement of the magnifying glass icon
+      padding-left:50px;
+
+      @include tablet{
+      // remove the margin from the input box for devices >=tablet to allow for row alignment
+        margin-bottom:0;
+      }
+
+    }
+    &-icon{
+      // place the magnifying glass icon correctly in the search input
+      position:absolute;
+      top:12px;
+      left:16px;
+      width:25px;
+      height:25px;
+
+    }
+  }
+
+  &__upload{
+    // align the upload button and the avatar in a row for all devices
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    @include tablet{
+      width:190px;
+      max-width:190px;
+    }
+  
+    &-btn{
+      // create an button with default styles (width, margin-bottom)
+      @include input-button(100%,0);
+      font-size:15px;
+      padding:15px;
+    
+      @include tablet{
+        padding: 15px 8px;
+        
+      }
+
+      &-link{
+        width:100%;
+        // max width for mobile button - doesn't look good growing too much
+        max-width:224px;
+
+        @include tablet{
+          margin-left:22px;
+        }
+      }
+    }
+
+    &-avatar{
+      // create an avatar with a 0px top margin
+      @include avatar();
+      margin-left:16px;
+
+      @include tablet{
+        width:35%;
+        max-width:48px;
+        }
+    }
+  }
+}
+
+

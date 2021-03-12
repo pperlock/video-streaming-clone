@@ -1,0 +1,114 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+.upload{
+    // apply the default padding for a section
+    @extend .section;
+    border-top: 1px solid $divider;
+
+    &__title{
+        padding:24px 0 32px 0;
+
+        @include tablet{
+            padding-top:48px;
+        }
+    }
+
+    &__upper{
+        @include desktop{
+            display:flex;
+            border-top: 1px solid $divider;
+            padding-top:40px;
+        }
+    }
+
+    // wrapper created around image to include the title for alignment
+    &__thumb-wrapper{
+        width:100%;
+        height:54vw;
+        padding-bottom:32px;
+
+        @include tablet{
+            width:45%;
+            height:24vw;
+            padding-bottom:40px;
+        }
+        @include desktop{
+            width:48.5%;
+            height:17vw;
+            padding-right: 24px;
+            max-height:205px;
+            max-width:344px;
+            min-height:183px;
+            min-width:344px;
+        }
+        
+    }
+
+    &__inputs{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+    }
+    &__label{
+        //apply the default global styles for labels
+        @extend .label;
+    }
+    &__thumb{
+        border-radius:4px;
+        width:100%;
+        // set to a small percentage of the wrapper to include the label above
+        height:89%;
+    }
+    &__form{
+        display:flex;
+        flex-direction:column;
+    }
+    &__video-title{
+         // create an input box with specified top/bottom padding and bottom margin
+        @include input-text (16px, 16px, 24px);
+    }
+    &__video-description{
+        // create an input box with specified top/bottom padding and bottom margin
+        @include input-text(16px, 91px, 32px);
+        // apply default styling for textarea elements
+        @extend .textarea;
+        padding-right:16px;
+
+        @include tablet{
+            height:1rem;
+            margin-bottom:40px;
+        }
+        @include desktop{
+            padding-bottom:53px;
+        }
+    }
+   
+    // section allows for the flexing of the publish and cancel buttons
+    &__lower{
+        @include tablet{
+            display:flex;
+            justify-content:flex-end;
+            align-items:baseline;
+            border-top:1px solid $divider;
+            padding-top:40px;
+        }
+    }
+
+    &__publish{
+        @include input-button(100%,24px);
+        @include tablet{
+            width:21%;
+            margin-left:48px;
+        }
+    }
+    &__cancel{
+        // move the cancel link to the left of the publish button for devices >=tablet size
+        order:-1;
+        font-size:16px;
+        text-align:center;
+        margin-bottom:24px;
+        color:$button-fill;
+    }
+
+}

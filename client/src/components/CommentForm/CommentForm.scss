@@ -1,0 +1,81 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+/*====================Styling for the CommentForm component==========================*/
+
+// section for submitting a new comment
+.new-comment{
+    // put the avatar and the form in a row
+    display:flex;
+    border-bottom:1px solid $divider;
+    width:100%;
+
+    &__avatar{
+        // build an avatar with default styling and a 20px top margin for alignment
+        @include avatar(20px);
+    } 
+
+    &__form{
+        // put the input elements in the form on top of one another
+        display:flex;
+        flex-direction:column;
+        margin-left:$mobile-padding;
+        width:100%;
+
+        @include tablet{
+            flex-direction:row;
+            width:85%;
+         }
+
+        // wraps the textarea and its label for easier alignment
+        &-wrapper{
+            display:flex;
+            flex-direction:column;
+            
+            @include tablet{
+                width:57vw;
+                margin-right:16px;
+            }
+            @include desktop{
+                width:32vw;
+            }
+        }
+
+        &-label{
+            // use the default styling for labels
+            @extend .label;
+        }
+
+        &-message{
+            // create an input box with specified top/bottom padding and bottom margin
+            @include input-text(16px, 60px, 16px);
+            padding-right:16px;
+            // remove the ability to resize the textarea
+            resize:none;
+            // set the font-family - doesn't inherit from defaults set
+            font-family:"Avenir Next", "Roboto";
+
+            @include tablet{
+                height:1rem;
+                padding-bottom:16px;
+                margin-bottom:24px;
+            }
+        }
+        &-button{
+            // push the button to right side of the container
+            align-self:flex-end;
+            // create an input button with default styling of a specific size
+            @include input-button(225.61px,24px);
+            
+            @include tablet{
+                // increase the size of the button for devices >=tablet size
+                @include input-button(160px,24px);
+                margin-top:12px;
+                margin-bottom:24px;
+                @include desktop{
+                    margin-right:32px;
+                }
+            }
+        }
+    }
+}

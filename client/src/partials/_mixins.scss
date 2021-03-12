@@ -1,0 +1,68 @@
+/*======================= Media Breakpoints ======================= */
+
+// Changes to tablet format >=768px
+@mixin tablet{
+    @media (min-width:768px){
+        @content;
+    }
+}
+
+// Changes to desktop format >=1200px
+@mixin desktop{
+    @media (min-width:1200px){
+        @content;
+    }
+}
+
+/*======================= Elements and Styling ======================= */
+
+//Creates a text input element with default styling including specified paddinging and bottom margin
+@mixin input-text ($padding-top, $padding-bottom, $bottom-margin){
+    border-radius:4px;
+    border:2px solid $text-field-border;
+    background-color:$text-field-background;
+    padding:$padding-top 0 $padding-bottom 16px;
+    margin-bottom: $bottom-margin;
+    &:focus{
+        outline:none;
+        border-color:$active-input;
+    }
+}
+
+//Creates a button element with default styling that has a specified width and bottom margin
+@mixin input-button($width,$margin-bottom){
+    border-radius:4px;
+    background-color: $button-fill;
+    font-size:16px;
+    color:$button-text;
+    padding:16px 0;
+    border:none;
+    cursor: pointer;
+    margin-bottom:$margin-bottom;
+    width:$width;
+    &:focus{
+        outline:none;
+        border-color:$active-input;
+    }
+    &:hover{
+        background-color:$button-hover;
+    }
+}
+
+//Centers and element vertically and horizontally
+@mixin center(){
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+//Builds an avatar using default styling with a specified top margin (default:0px)
+@mixin avatar($margin-top:0){
+    margin-top:$margin-top;
+    background-color:$avatar-fill;
+    background-size:cover;
+    border-radius:100px;
+    min-width:48px;
+    width:48px;
+    height:48px;
+}

@@ -1,0 +1,18 @@
+// Import all the default styles, variables, mixins and typography
+@import "./globalStyles";
+
+/*====================Styling for the App component==========================*/
+
+// Default settings for the entire app
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    color: $global-text;
+    font-family: "Avenir Next";
+}
+
+a{
+    text-decoration: none;
+}

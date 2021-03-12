@@ -1,0 +1,94 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+/*====================Styling for the Header component==========================*/
+
+.video-details{
+    @include desktop{
+        padding-top:40px;
+    }
+    &__title{
+        padding-bottom:16px;
+        @include tablet{
+            padding-bottom:0;
+            margin-bottom:24px;
+        }
+        @include desktop{
+            margin-bottom:15px;
+        }
+
+    }
+
+    //component is broken into title middle and description middle contains title, owner, timestamp, likes and views
+    &__middle{
+        // create a solid line between the middle section and the description
+        border-bottom: 1px solid $divider;
+        padding-bottom:24px;
+
+        @include tablet{
+            // place the likes and views (--right) to the right of the owner and timestamp (--left) for devices >= tablet size
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-start;
+
+        }
+        @include desktop{
+            padding-bottom:8px;
+        }
+        &--left{
+            // place the timestamp next to the owner
+            display:flex;
+            margin-bottom:32px;
+            @include tablet{
+                padding-top:2px;
+                margin-bottom:0px;
+             }
+        }
+
+        &--right{
+            // display the likes beside the views
+            display:flex;
+            margin-right:32px;  
+        }
+    }
+
+    &__owner{
+        padding-right:8px;
+        
+    }
+
+    &__date{
+        // use the default styling for a timestamp
+        @extend .timestamp;
+    }
+
+    &__icon{
+        margin-right:8px;
+        padding-bottom:4px;
+        &-likes{
+            cursor:pointer;
+        }
+    }
+
+    &__views{
+        margin-right:20px;
+        font-weight:400;
+    }
+
+    &__likes{
+        font-weight:400;
+    }
+
+    &__description{
+        padding:24px 0 40px 0;
+        @include tablet{
+            padding:40px 0 64px 0;
+            width:70%;
+        }
+        @include desktop{
+            font-size: 0.85rem;
+            width:70%;
+            padding:35px 0;
+        }
+    }
+}

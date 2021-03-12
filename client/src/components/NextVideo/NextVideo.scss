@@ -1,0 +1,107 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+/*====================Styling for the NextVideo component==========================*/
+
+.next-video{
+    //put the details and the image beside each other
+    display:flex;
+    padding-bottom:24px;
+    @include tablet{
+        //section takes up a smaller width on tablets
+        width:58%;
+    }
+    @include desktop{
+        //the right side of the main section is used to size the comments so they take up 100% of that container
+        width:100%;
+    }
+
+    &__thumb{
+        width:100%;
+        height: 100%;
+        background-size:cover;
+        background-position:center;
+        border-radius:4px;
+        object-fit:cover;
+    }
+
+    &__link{
+        width: 42%;
+        height: 22vw;
+        margin:0 16px 0 0;
+
+        @include tablet{
+            width:29%;
+            height:9vw;
+        }
+
+        @include desktop{
+            width:35%;
+            height:5vw;
+            min-width:120px;
+            min-height:70px;
+        }
+    }
+
+    &__details{
+        // place the title over the owner name
+        display:flex;
+        flex-direction:column;
+        flex:1;
+
+        &-title{
+            font-weight:600;
+            font-size:0.85rem;
+            line-height:1.3rem;
+            letter-spacing:0.5px;
+            
+            overflow:hidden;
+            text-overflow:ellipsis;
+    
+            //used to add the ellipses to overflow text - text-overflow:ellipses is insufficent for multiline
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            
+                
+            @include tablet{
+                padding-bottom:0;
+                font-size:1.1rem;
+                line-height:1.5rem;
+            }
+            
+            @include desktop{
+                font-size:0.78rem;
+            }
+
+        }
+
+        &-owner{
+            padding-top:8px;
+            font-size:0.875rem;
+        }
+    }
+}
+
+
+.truncate-overflow {
+    
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem; /* space for ellipsis */
+  }
+  .truncate-overflow::before {
+    position: absolute;
+    content: "...";
+    inset-block-end: 0; /* "bottom" */
+    inset-inline-end: 0; /* "right" */
+  }
+  .truncate-overflow::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0; /* "right" */
+    width: 1rem;
+    height: 1rem;
+    background: white;
+  }

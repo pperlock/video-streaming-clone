@@ -1,0 +1,104 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+/*====================Styling for the Comment component==========================*/
+
+.comment{
+    // put the avatar beside the details
+    display:flex;
+    // add a line to the bottom of the comment section
+    border-bottom:1px solid $divider;
+    padding:24px 0;
+    width:100%;
+    
+    @include desktop{
+        padding:10px 0;
+    }
+
+    &__avatar{
+        // create an avatar with a 8px top margin
+        @include avatar(8px);
+    }
+
+    &__details{
+        // put the title and timestamp in a column with the message
+        display:flex;
+        flex-direction:column;
+        margin-left:$mobile-padding;
+        padding-top:8px;
+        width:85%;
+        @include tablet{
+            padding-top:0;
+        }
+        @include desktop{
+            width:80%;
+        }
+        &-header{
+            // display the timestamp and name side by side
+            display:flex;
+            justify-content:space-between;
+            @include tablet{
+                // bring the timestamp and name closer togetherr for devices >= tablet size
+                justify-content:flex-start;
+            }
+        }
+        &-name{
+            font-size:0.9rem;
+            @include tablet{
+                font-size:1rem;
+                padding-right:16px;
+            }
+        }
+        &-timestamp{
+            // use default styling for the timestamp
+            @extend .timestamp;
+        }
+        &-message{
+            padding:16px 0 8px 0;
+            font-size:0.875rem;
+            line-height:1.375rem;
+            @include tablet{
+                padding-top:0;
+            }
+            @include desktop{
+                font-size:0.8rem;
+            }
+        }
+    }
+    &__delete-btn{
+        width:20px;
+        border-radius:4px;
+        background-color:$delete-button;
+        color:$delete-text;
+        height:20px;
+        padding:2px;
+        align-self:flex-end;
+        font-size:12px;
+        border:none;
+        cursor: pointer;
+        //positioned relative for tooltip
+        position:relative;
+
+        &:hover{
+            color:$hover-delete-text;
+        }
+
+        // format the pseudo-element with the tool-tip data identify the function of the delete button
+        &::before{
+            content: attr(data-tooltip);
+            display:none;
+            left:-12px;
+            bottom:20px;
+            font-size: 12px;
+            padding: 1px 5px;
+            color: white;
+            border-radius:4px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        // only show the tool tip when you hover over the delete button
+        &:hover::before {
+            position:absolute;
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+// Import all the default styles, variables, mixins and typography
+@import "../../globalStyles";
+
+
+/*====================Styling for the MainPage component==========================*/
+
+//main section has been separated into: 
+// top and bottom - to separate the video player from the other components
+// left and right columns to accomodate for desktop layout
+
+.main{
+
+    &__lower{
+        // apply the default left and right padding for a section
+        @extend .section;
+        padding-top:32px;
+        
+        @include tablet{
+            padding-top:48px;
+        }
+        @include desktop{
+            // put the next video section beside the comments and details   
+            display:flex;  
+            padding-top:0px;
+        }
+    }
+
+    &__column-left{
+        // create a line between the left and right sections on the desktop layout
+        @include desktop{
+            border-right:1px solid $divider;
+            width:66%;
+            margin-right:15px;
+        }
+    }   
+}

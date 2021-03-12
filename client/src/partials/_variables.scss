@@ -1,0 +1,32 @@
+// Color Palette
+
+// Global Fonts
+$global-text:#323232;
+$global-contrast:#FFFFFF;
+
+// Form Elements
+$button-fill:#0095FF;
+$button-text:#FFFFFF;
+$avatar-fill:#E1E1E1;
+$text-label: #AFAFAF;
+$text-field-border: #E1E1E1;
+$text-field-background: #FAFAFA;
+$divider:#E1E1E1;
+$active-input:#0095FF;
+$button-hover:#0065AD;
+
+//Delete Buttons
+$delete-button: #FAFAFA;
+$delete-text:#AFAFAF;
+$hover-delete-fill:#AFAFAF;
+$hover-delete-text:#323232;
+
+/*======================= Margins and Padding ======================= */
+
+// The outside padding used for alignment for all elements 
+
+// Corresponds to 16px @ 320px screen width
+$mobile-padding:5%;
+
+// Corresponds to 180px @ 1440px screen width
+$desktop-padding:12.5%;

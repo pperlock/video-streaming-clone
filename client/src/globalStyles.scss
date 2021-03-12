@@ -1,0 +1,88 @@
+// Import the mixins, variables and typography for global use
+@import "./partials/mixins";
+@import "./partials/variables";
+@import "./partials/typography";
+
+// default padding for a page section
+.section{
+    padding:0 $mobile-padding;
+    @include desktop{
+        padding:0 $desktop-padding;
+    }
+}
+
+.textarea{
+    // remove the ability to resize the textarea
+    resize:none;
+    // set the font-family - doesn't inherit from defaults set
+    font-family:"Avenir Next", "Roboto";
+
+}
+
+// default styling for the video control divs 
+.controls{
+    background-color:rgba(0,0,0,0.5);
+    padding:8px 16px;
+    border-radius:4px;
+}
+
+// default font styling for timestamps
+.timestamp{
+    font-weight:400;
+    color:$text-label;
+    font-size:0.9rem;
+}
+
+/*Default font formats for breakpoints from styleguide.  HTML font size is 16px*/
+
+// Headers
+h1{
+    font-weight:700;
+    font-size:1.5rem;
+    line-height:2rem;
+
+    @include tablet{
+        font-size:2.25rem;
+        line-height:2.5rem;
+    }
+}
+
+// Subheader
+h2, .subheader{
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:0.5px;
+    
+    @include tablet{
+        font-size:1rem;
+        line-height:2rem;
+    }
+}
+
+h3{
+    @include tablet{
+        font-size:1rem;
+        line-height:1.5rem;
+    } 
+}
+
+// paragraphs, lists and contact information
+h4, p{
+    font-size:0.79rem;
+    line-height:1.3rem;
+
+    @include tablet{
+        font-size:1rem;
+        line-height:1.6rem;
+    }
+}
+
+// labels
+h5, .label {
+    font-size:0.75rem;
+    line-height:1.25rem;
+    color:$text-label;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
