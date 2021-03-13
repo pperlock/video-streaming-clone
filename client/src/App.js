@@ -11,17 +11,17 @@ import UploadPage from './pages/UploadPage/UploadPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 function App () {
-        return (
-            <BrowserRouter>
-                <Header />
-                <Switch>
-                    <Route path="/" exact component={HomePage}/>
-                    <Route path="/upload" component={UploadPage}/>
-                    <Route path="/video/:id" render={(props)=>(<HomePage {...props} />)}/>
-                    <Route path="/notfound"  render={(props)=>(<NotFoundPage {...props} />)}/>
-                    <Route component={NotFoundPage}/>
-                </Switch>
-            </BrowserRouter>
+    return (
+        <BrowserRouter>
+            <Header />
+            <Switch>
+                <Route path="/" exact component={HomePage}/>
+                <Route path="/upload" component={UploadPage}/>
+                <Route path="/video/:id" render={(props)=>(<HomePage {...props} />)}/>
+                <Route path="/notfound"  render={(props)=>(<NotFoundPage {...props} />)}/>
+                <Route component={NotFoundPage}/>
+            </Switch>
+        </BrowserRouter>
     );
 }
 

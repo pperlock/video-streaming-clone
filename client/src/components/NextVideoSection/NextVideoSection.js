@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 // import {useSelector, useDispatch} from 'react-redux';
 // import {loadSideVideos} from "../../reducers/sideReducer";
@@ -9,7 +9,7 @@ import "./NextVideoSection.scss";
 //import any child components to render
 import NextVideo from "../NextVideo/NextVideo";
 
-import {setVideos} from '../../actions';
+// import {setVideos} from '../../actions';
 
 /**
 * NEXT VIDEO SECTION COMPONENT

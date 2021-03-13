@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-import {useSelector, useDispatch} from 'react-redux';
-import {getMainVideo} from '../../reducers/mainVideoSlice';
+// import {useSelector, useDispatch} from 'react-redux';
+// import {getMainVideo} from '../../reducers/mainVideoSlice';
 
 //import styles specific to component
 import "./VideoDetails.scss";
