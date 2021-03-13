@@ -1,6 +1,7 @@
 // import all modules need for functionality
 import React, {useEffect, useState} from 'react';
 import {Redirect} from "react-router-dom";
+import {connect, useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 
 //import styles specific to component
@@ -12,29 +13,34 @@ import VideoDetails from "../../components/VideoDetails/VideoDetails"
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
-// import {loadSideVideos} from "../../reducers/sideReducer";
-// import {useSelector, useDispatch} from 'react-redux';
+import {getSideVideos, updateMainVideo} from '../../actions';
 
-const HomePage = ({match, location}) => {
+const HomePage = ({match}) => {
 
+    const dispatch = useDispatch();
     //url for the axios calls
     const apiUrl = "http://localhost:8080/videos/";
     
-    const [sideVideos, setSideVideos] = useState([{id:""}]);
-    const [mainVideo, setMainVideo] = useState({id:""});
+    const sideVideos = useSelector(state=>state.sideVideoStore.sideVideos);
+    const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+
+    // const [sideVideos, setSideVideos] = useState([{id:""}]);
+    //const [mainVideo, setMainVideo] = useState({id:""});
     const [initial, setInitial] = useState(0);
     const [error, setError] = useState("");
     
     useEffect(()=>{
         // console.log("useEffect 1 reached");
-        getSideVideos();
+        //getSideVideos();
+        dispatch(getSideVideos());
     },[]);
 
     useEffect(()=>{
+        console.log(sideVideos);
         // console.log("useEffect Reached", match.params.id);
         // console.log('useffect mainVideo', mainVideo.id)
-        const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
-        (mainVideo !== videoId  && match.path !== "/notfound") && updateMainVideo(videoId);
+        //const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
+        //(mainVideo !== videoId  && match.path !== "/notfound") && updateMainVideo(videoId);
     },[match.params.id]);
 
     /** ==================================  Function Declarations =================================================*/
@@ -44,46 +50,46 @@ const HomePage = ({match, location}) => {
      * Useage: Retrieves the sideVideo data from the api
      */
     
-    const getSideVideos = () =>{
-        axios.get(apiUrl)
-        .then(res=>{
-            setSideVideos(res.data);
-            match.params.id ? updateMainVideo(match.params.id) : updateMainVideo(res.data[0].id);
-        })
-        .catch(err=>{
-            setError(err);
-        })
-    }
+    // const getSideVideos = () =>{
+    //     axios.get(apiUrl)
+    //     .then(res=>{
+    //         setSideVideos(res.data);
+    //         match.params.id ? updateMainVideo(match.params.id) : updateMainVideo(res.data[0].id);
+    //     })
+    //     .catch(err=>{
+    //         setError(err);
+    //     })
+    // }
 
     /**
      * Function: updateMainVideo
      * Useage: Retrieves mainVideo data from the api associated with a specific video id and updates the state
      * @param {string} currentId 
      */
-    const updateMainVideo = (currentId) => {
-        // console.log("update current id", currentId);
-        axios.get(apiUrl + currentId)
-            .then(res=>{
-                //if this is the first time the page has been loaded this session and it's the home route then set the first video in the list in the sessionStorage
-                //this handles any linking back from the upload page from being set as the new home video
-                if(initial===0 && match.path=="/"){
-                    sessionStorage.setItem("homeVideo", JSON.stringify(res.data))
-                    // Once updateVideo has been called, the page has been visited once so update initial to > 0
-                    setInitial(1);
-                } 
-                if(res.data !== "failed"){  
-                // Update the video to be shown on the video player
-                    setMainVideo(res.data);
-                }else{
-                    setError("Video Not Found");
-                }
-            })
-            .catch(err=>{
-                console.log(err);
-                setError(err)
-            }
-            )
-        };
+    // const updateMainVideo = (currentId) => {
+    //     // console.log("update current id", currentId);
+    //     axios.get(apiUrl + currentId)
+    //         .then(res=>{
+    //             //if this is the first time the page has been loaded this session and it's the home route then set the first video in the list in the sessionStorage
+    //             //this handles any linking back from the upload page from being set as the new home video
+    //             if(initial===0 && match.path==="/"){
+    //                 sessionStorage.setItem("homeVideo", JSON.stringify(res.data))
+    //                 // Once updateVideo has been called, the page has been visited once so update initial to > 0
+    //                 setInitial(1);
+    //             } 
+    //             if(res.data !== "failed"){  
+    //             // Update the video to be shown on the video player
+    //                 setMainVideo(res.data);
+    //             }else{
+    //                 setError("Video Not Found");
+    //             }
+    //         })
+    //         .catch(err=>{
+    //             console.log(err);
+    //             setError(err)
+    //         }
+    //         )
+    //     };
 
     /**
      * Function: addComment
@@ -164,4 +170,21 @@ const HomePage = ({match, location}) => {
     )
 }
 
-export default HomePage
+const mapStateToProps = state => {
+    return {
+    //   mainVideo: state.mainVideo,
+      sideVideos: state.sideVideos
+    };
+  };
+
+//   const mapDispatchToProps = dispatch => {
+//     return {
+//       onGetSideVideos: videos => {
+//         dispatch(getSideVideos(videos));
+//       }
+//     };
+//   };
+  
+// export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+export default connect(null,{getSideVideos})(HomePage);

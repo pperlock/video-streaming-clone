@@ -1,20 +1,30 @@
-import axios from 'axios';
+const initialState = {
+    sideVideos:[],
+    error:null
+};
 
-import {setVideos} from '../actions';
-
-const sideReducer = (state = 0, action) =>{
+const sideReducer = (state = initialState, action) =>{
+    console.log('reducer started');
     switch(action.type){
-        case "SET_VIDEOS":
-            return {...state, sideVideos: action.payload}
+        case 'GET_VIDEOS_STARTED':
+            console.log('GET_VIDEOS_STARTED');
+            return {...state};
+        case 'GET_VIDEOS_SUCCESS':
+            console.log('GET_VIDEOS_SUCCESS');
+            return{
+                ...state,
+                error:null,
+                sideVideos:action.payload
+            };
+        case 'GET_VIDEOS_FAILURE':
+            return{
+                ...state,
+                error:action.payload.error
+            };    
         default:
             return state; 
     }
 }
 
-export const loadSideVideos = ()=> (dispatch, getState)=>{
-    const videos = axios.get("http://localhost:8080/videos/");
-    console.log(videos);
-    dispatch(setVideos(videos));
-}
- 
+
 export default sideReducer;

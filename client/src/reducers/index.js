@@ -2,10 +2,10 @@ import sideReducer from './sideReducer';
 import mainReducer from './mainReducer';
 import {combineReducers} from 'redux';
 
-const rootReducer = combineReducers({
+const allReducers =  combineReducers({
     //counterReducer //Means --> counter: counterReducer,
-    sideReducer,
-    mainReducer
+    sideVideoStore:sideReducer,
+    mainVideoStore:mainReducer
 })
 
-export default rootReducer;
+export default allReducers;

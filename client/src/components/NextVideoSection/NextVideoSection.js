@@ -1,7 +1,6 @@
 import React from "react";
 
-// import {useSelector, useDispatch} from 'react-redux';
-// import {loadSideVideos} from "../../reducers/sideReducer";
+import {connect, useSelector, useDispatch} from 'react-redux';
 
 //import styles specific to component
 import "./NextVideoSection.scss";
@@ -9,7 +8,6 @@ import "./NextVideoSection.scss";
 //import any child components to render
 import NextVideo from "../NextVideo/NextVideo";
 
-// import {setVideos} from '../../actions';
 
 /**
 * NEXT VIDEO SECTION COMPONENT
@@ -17,35 +15,25 @@ import NextVideo from "../NextVideo/NextVideo";
 * @param {array[objects]} sideVideos 
 */
 
-function NextVideoSection ({sideVideos}){
-    // const dispatch = useDispatch();
-    // const videos = useSelector(state => state.sideVideos);
-    // console.log(videos);
+function NextVideoSection (){
+    const dispatch = useDispatch();
+    const sideVideos = useSelector(state => state.sideVideoStore.sideVideos);
+    console.log(sideVideos);
 
-    // const videoStatus = useSelector(state => state.sideVideos.status);
-
-    // const error = useSelector(state => state.sideVideos.error);
-
-    // useEffect(()=>{
-    //     dispatch(setVideos())
-    // }, [dispatch])
-
-    // console.log(videos.sideVideos);
     return(
         <section className="next-video-section"> 
             <p className="next-video-section__title">NEXT VIDEO</p>
 
+            {/* <h1> {sideVideos[0].id}</h1> */}
+
             {/* render a NextVideo component for each object in the sideVideos array */}
-            {/* {videos.sideVideos.map((video)=> {
-                    return (<NextVideo  key={video.id} video={video}/>)
-                    })
-                }  */}
             {sideVideos.map((video)=> {
-                    return (<NextVideo  key={video.id} video={video}/>)
-                    })
-                } 
+                return (<NextVideo  key={video.id} video={video}/>)
+            })} 
         </section>
     );
 };
 
-export default NextVideoSection;
+// export default NextVideoSection;
+
+export default connect(null)(NextVideoSection);
