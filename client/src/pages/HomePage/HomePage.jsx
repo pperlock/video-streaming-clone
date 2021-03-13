@@ -1,5 +1,5 @@
 // import all modules need for functionality
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Redirect} from "react-router-dom";
 import axios from 'axios';
 
@@ -12,6 +12,9 @@ import VideoDetails from "../../components/VideoDetails/VideoDetails"
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
+// import {loadSideVideos} from "../../reducers/sideReducer";
+// import {useSelector, useDispatch} from 'react-redux';
+
 class HomePage extends React.Component {
 
     //url for the axios calls
@@ -19,12 +22,13 @@ class HomePage extends React.Component {
     
     state={sideVideos:[{id:""}], mainVideo:{}, initial:0, error: ""};
 
-
     /** ==================================  Component Lifecycle Methods =================================================*/
 
     componentDidMount(){
         //get the sidevideo data and the main video object associated with the first video in the list when the page is loaded
-        // this.getSideVideos();
+        this.getSideVideos();
+        // const dispatch = useDispatch();
+        // dispatch(loadSideVideos);
         
   };
 
@@ -60,15 +64,15 @@ class HomePage extends React.Component {
      * Useage: Retrieves the sideVideo data from the api
      */
     
-    // getSideVideos = () =>{
-    //     axios.get(this.apiUrl)
-    //     .then(res=>{
-    //         this.setState({sideVideos:res.data}, ()=>this.updateMainVideo(res.data[0].id));
-    //     })
-    //     .catch(err=>{
-    //         this.setState({error:err})
-    //     })
-    // }
+    getSideVideos = () =>{
+        axios.get(this.apiUrl)
+        .then(res=>{
+            this.setState({sideVideos:res.data}, ()=>this.updateMainVideo(res.data[0].id));
+        })
+        .catch(err=>{
+            this.setState({error:err})
+        })
+    }
 
     /**
      * Function: updateMainVideo

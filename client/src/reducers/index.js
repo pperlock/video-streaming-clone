@@ -1,11 +1,11 @@
-// import counterReducer from './counter';
-// import loggedReducer from './isLogged';
-// import {combineReducers} from 'redux';
+import sideReducer from './sideReducer';
+import mainReducer from './mainReducer';
+import {combineReducers} from 'redux';
 
-// const allReducers = combineReducers({
-//     //counterReducer //Means --> counter: counterReducer,
-//     counter : counterReducer,
-//     isLogged : loggedReducer
-// })
+const rootReducer = combineReducers({
+    //counterReducer //Means --> counter: counterReducer,
+    sideReducer,
+    mainReducer
+})
 
-// export default allReducers;
+export default rootReducer;

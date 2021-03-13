@@ -18,22 +18,22 @@ import {convertToDate} from '../../globalFunctions';
 
 function VideoDetails({mainVideo, updateVideoLikes}){
 
-    const dispatch = useDispatch();
-    const video = useSelector(state => state.mainVideo);
+    // const dispatch = useDispatch();
+    // const video = useSelector(state => state.mainVideo);
 
-    console.log(video);
+    // console.log(video);
 
-    const videoStatus = useSelector(state => state.mainVideo.status);
+    // const videoStatus = useSelector(state => state.mainVideo.status);
 
-    const error = useSelector(state => state.mainVideo.error);
+    // const error = useSelector(state => state.mainVideo.error);
 
-    useEffect(()=>{
-        if(videoStatus === 'pending'){
-            dispatch(getMainVideo(match.params))
-        }
-    }, [videoStatus, dispatch])
+    // useEffect(()=>{
+    //     if(videoStatus === 'pending'){
+    //         dispatch(getMainVideo(match.params))
+    //     }
+    // }, [videoStatus, dispatch])
 
-    console.log(video.mainVideo);
+    // console.log(video.mainVideo);
 
     // descontruct mainVideo object for code readability
     const {title, channel, timestamp, views, likes, description} = mainVideo;
