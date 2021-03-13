@@ -26,13 +26,15 @@ const HomePage = ({match}) => {
     const [error, setError] = useState("");
     
     useEffect(()=>{
+        // console.log("useEffect 1 reached");
         getSideVideos();
     },[]);
 
     useEffect(()=>{
-        console.log("useEffect Reached");
-        const videoId = match.path !== "/" ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
-        updateMainVideo(videoId);
+        // console.log("useEffect Reached", match.params.id);
+        // console.log('useffect mainVideo', mainVideo.id)
+        const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
+        (mainVideo !== videoId  && match.params.id) && updateMainVideo(videoId);
     },[match.params.id]);
 
     /** ==================================  Function Declarations =================================================*/
@@ -46,7 +48,7 @@ const HomePage = ({match}) => {
         axios.get(apiUrl)
         .then(res=>{
             setSideVideos(res.data);
-            updateMainVideo(res.data[0].id);
+            match.params.id ? updateMainVideo(match.params.id) : updateMainVideo(res.data[0].id);
         })
         .catch(err=>{
             setError(err);
@@ -59,6 +61,8 @@ const HomePage = ({match}) => {
      * @param {string} currentId 
      */
     const updateMainVideo = (currentId) => {
+        // console.log("update current id", currentId);
+        // const fetchId = currentId && 
         axios.get(apiUrl + currentId)
             .then(res=>{
                 //if this is the first time the page has been loaded this session then set the first video in the list in the sessionStorage
@@ -66,12 +70,18 @@ const HomePage = ({match}) => {
                     sessionStorage.setItem("homeVideo", JSON.stringify(res.data))
                     // Once updateVideo has been called, the page has been visited once so update initial to > 0
                     setInitial(1);
-                }   
+                } 
+                if(res.data !== "failed"){  
                 // Update the video to be shown on the video player
-                setMainVideo(res.data);
+                    setMainVideo(res.data);
+                }else{
+                    setError("Video Not Found");
+                }
             })
-            .catch(err=>
+            .catch(err=>{
+                console.log(err);
                 setError(err)
+            }
             )
         };
 
@@ -129,7 +139,6 @@ const HomePage = ({match}) => {
                 setError(err)
             );
     }
-
      /** ==================================  Component Rendering =================================================*/
     return (
         <>

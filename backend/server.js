@@ -78,10 +78,10 @@ app.route('/videos')
 app.get('/videos/:id', (req,res)=>{
     
     //find the video associated with the requested id
-    const requestedVideo=mainVideo.find(video=> video.id===req.params.id)
-    
+    const requestedVideo=mainVideo.find(video=> video.id===req.params.id);
+
     //return the video associated with the requested id
-    res.json(requestedVideo)
+    return requestedVideo ? res.json(requestedVideo): res.send("failed");
 });
 
 
