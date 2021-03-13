@@ -333,18 +333,5 @@
         "timestamp": 1610200980900
       }
     ]
-  },
-  {
-    "id": "1d8e20bc-2a99-42e1-81c7-2cf91cc2d79d",
-    "title": "Best Video Ever",
-    "channel": "Patti Posts Stuff",
-    "image": "/assets/images/Upload-video-preview.jpg",
-    "description": "test",
-    "views": "0",
-    "likes": "0",
-    "duration": "4:00",
-    "video": "randomVideo.mp4",
-    "timestamp": 1615647848915,
-    "comments": []
   }
 ]

@@ -29,7 +29,6 @@ function UploadPage() {
                 "video":"randomVideo.mp4",
             })
         .then(res=>{
-            console.log(res);
             let path = `video/${res.data.id}`; 
             history.push(path); 
         })

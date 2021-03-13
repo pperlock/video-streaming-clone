@@ -15,7 +15,7 @@ import CommentsSection from '../../components/CommentsSection/CommentsSection';
 // import {loadSideVideos} from "../../reducers/sideReducer";
 // import {useSelector, useDispatch} from 'react-redux';
 
-const HomePage = ({match}) => {
+const HomePage = ({match, location}) => {
 
     //url for the axios calls
     const apiUrl = "http://localhost:8080/videos/";
@@ -34,7 +34,7 @@ const HomePage = ({match}) => {
         // console.log("useEffect Reached", match.params.id);
         // console.log('useffect mainVideo', mainVideo.id)
         const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
-        (mainVideo !== videoId  && match.params.id) && updateMainVideo(videoId);
+        (mainVideo !== videoId  && match.path !== "/notfound") && updateMainVideo(videoId);
     },[match.params.id]);
 
     /** ==================================  Function Declarations =================================================*/
@@ -62,11 +62,11 @@ const HomePage = ({match}) => {
      */
     const updateMainVideo = (currentId) => {
         // console.log("update current id", currentId);
-        // const fetchId = currentId && 
         axios.get(apiUrl + currentId)
             .then(res=>{
-                //if this is the first time the page has been loaded this session then set the first video in the list in the sessionStorage
-                if(initial===0){
+                //if this is the first time the page has been loaded this session and it's the home route then set the first video in the list in the sessionStorage
+                //this handles any linking back from the upload page from being set as the new home video
+                if(initial===0 && match.path=="/"){
                     sessionStorage.setItem("homeVideo", JSON.stringify(res.data))
                     // Once updateVideo has been called, the page has been visited once so update initial to > 0
                     setInitial(1);
