@@ -4,7 +4,7 @@
 /*====================Styling for the Header component==========================*/
 
 .header{
-  height:170px;
+  height:195px;
   box-sizing:border-box;
   background-color:$nav-background;
   width:100%;
@@ -36,6 +36,7 @@
   // Display the nav bar elements in a row for devices >=tablet size
   @include tablet{
     flex-direction:row;
+    justify-content: space-between;
   }
 
   &__logo{
@@ -66,6 +67,14 @@
     }
   }
   
+  &__signOut{
+    color:$accent-color;
+    filter:$accent-filter;
+    width:35px;
+    margin-left:10px;
+    transform:rotate(180deg);
+  }
+  
   &--left{
     height:48px;
     display:flex;
@@ -79,22 +88,26 @@
 
   &--right{
     width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
     @include tablet{
       // put the search box, avatar and the upload button in a row and push them to the right side for devices >=tablet size
-      display:flex;
       justify-content:flex-end;
-      align-items:center;
-    }
+      width:50%;
+      min-width:245px;
+     }
 
   }
 
   &__search{
     // make the search element relative to place the magnifying glass icon
     position:relative;
-
-    @include tablet{
-        width:50%;
+    width:100%;
+    margin:10px 0;
+    @include desktop{
+      margin-left:2%;
     }
     
     &-input{
@@ -128,8 +141,9 @@
     display:flex;
     justify-content:flex-end;
     align-items:center;
+    width:80%;
     @include tablet{
-      width:50%;
+      // width:50%;
       max-width:205px;
     }
   

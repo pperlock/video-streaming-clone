@@ -28,12 +28,12 @@ function Header(){
                         <p className="nav-bar__logo-name">video<span className="nav-bar__logo-name--accent">Streamer</span></p>
                     </Link>
                 </div>
+                {/* right side split into two divs for detailed flexing */}
+                <div className = "nav-bar__search">
+                    <input className = "nav-bar__search-input" type = "text" placeholder="Search"></input>
+                    <img className="nav-bar__search-icon" src="/assets/icons/Icon-search.svg" alt="search icon"/>
+                </div>
                 <div className = "nav-bar--right">
-                    {/* right side split into two divs for detailed flexing */}
-                    <div className = "nav-bar__search">
-                        <input className = "nav-bar__search-input" type = "text" placeholder="Search"></input>
-                        <img className="nav-bar__search-icon" src="/assets/icons/Icon-search.svg" alt="search icon"/>
-                    </div>
                     <div className = "nav-bar__upload">
                         {/* send the user to the upload page when button is clicked */}
                         <Link className="nav-bar__upload-btn-link" to="/upload">
@@ -41,7 +41,9 @@ function Header(){
                         </Link>
                         <div className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(${avatar})`}}> </div>
                     </div>
+                    <Link to="/"><img className="nav-bar__signOut" src="/assets/icons/logout.svg"/></Link>
                 </div>
+                
             </nav>
         </header>
     );
