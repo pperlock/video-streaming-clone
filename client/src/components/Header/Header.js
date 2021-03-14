@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-import {connect, useSelector} from 'react-redux';
+import {connect, useSelector, useDispatch} from 'react-redux';
 
 //import styles specific to component
 import "./Header.scss";
+
+import {userLogout} from '../../actions/user';
 
 /**
 HEADER COMPONENT
@@ -14,9 +16,22 @@ Includes navigation, search bar and upload capability for the site
 
 function Header(){
     
+    const dispatch = useDispatch();
     const avatar = useSelector(state=>state.userStore.user.avatar);
+        
+    const [showMenu, setShowMenu] = useState(false);
+
+    const toggleMenu = () =>{
+        setShowMenu(!showMenu);
+    }
+
+    const logout =() =>{
+        dispatch(userLogout);
+        window.location.href = "/";
+    }
     
     return(
+        <>
         <header className = "header">
             <nav className = "nav-bar">
                 {/* separated into left and right for flex ability */}
@@ -29,23 +44,26 @@ function Header(){
                     </Link>
                 </div>
                 {/* right side split into two divs for detailed flexing */}
+                <div className = "nav-bar--right">
                 <div className = "nav-bar__search">
                     <input className = "nav-bar__search-input" type = "text" placeholder="Search"></input>
                     <img className="nav-bar__search-icon" src="/assets/icons/Icon-search.svg" alt="search icon"/>
                 </div>
-                <div className = "nav-bar--right">
                     <div className = "nav-bar__upload">
                         {/* send the user to the upload page when button is clicked */}
                         <Link className="nav-bar__upload-btn-link" to="/upload">
                             <button className = "nav-bar__upload-btn"> <img className="nav-bar__upload-btn-icon" src="/assets/icons/upload-icon.svg" alt="upload button"/> UPLOAD</button>
                         </Link>
-                        <div className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(${avatar})`}}> </div>
+                        <div onClick={toggleMenu}className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(${avatar})`}}> </div>
                     </div>
-                    <Link to="/"><img className="nav-bar__signOut" src="/assets/icons/logout.svg"/></Link>
+
                 </div>
-                
             </nav>
         </header>
+        <div onClick={logout} className={showMenu ? "signout--on" : "signout"}>
+            <p className="signout__text">Sign Out</p>
+        </div>
+        </>
     );
 };
 

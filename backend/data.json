@@ -6,7 +6,7 @@
     "image": "/assets/images/whisky-reverse.png",
     "description": "On a gusty day in Southern Utah, a group of 25 daring mountain bikers blew the doors off what is possible on two wheels, unleashing some of the biggest moments the sport has ever seen. While mother nature only allowed for one full run before the conditions made it impossible to ride, that was all that was needed for event veteran Kyle Strait, who won the event for the second time -- eight years after his first Red Cow Rampage title",
     "views": "1,001,023",
-    "likes": "111,002",
+    "likes": "111,004",
     "duration": "4:01",
     "video": "/assets/videos/whisky-reverse.mp4",
     "timestamp": 1545162149000,
@@ -25,6 +25,7 @@
         "name": "Gary Wong",
         "avatar": "/assets/images/avatar-guy-4.jpg",
         "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
+        "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
         "likes": 0,
         "timestamp": 1544595784046
       },
@@ -33,6 +34,7 @@
         "name": "Theodore Duncan",
         "avatar": "/assets/images/avatar-guy-3.jpg",
         "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
+        "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
         "likes": 0,
         "timestamp": 1542262984046
       }

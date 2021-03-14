@@ -1,4 +1,4 @@
-import {GET_USER_STARTED, GET_USER_SUCCESS, GET_USER_FAILURE} from './types';
+import {GET_USER_STARTED, GET_USER_SUCCESS, GET_USER_FAILURE, USER_LOGOUT} from './types';
 
 import axios from 'axios';
 
@@ -22,8 +22,11 @@ export const getUserFailure = error => ({
     }
 });
 
+export const userLogout = ()=>({
+    type: USER_LOGOUT
+});
+
 export const getUser = (username)=> {
-    console.log(username);
     return (dispatch, getState) =>{
         dispatch(getUserStarted());
         axios.get("http://localhost:8080/user/" + username)

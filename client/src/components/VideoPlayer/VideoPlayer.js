@@ -18,10 +18,6 @@ function VideoPlayer(){
     // destructure mainVideo object for code readability
     const {image, video, duration} = mainVideo;
 
-    console.log(video);
-
-    console.log("/assets/videos/whisky-reverse.mp4");
-    console.log("rendered")
     return(
         <section className = "video">
             <div className="video__wrapper">

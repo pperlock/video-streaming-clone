@@ -15,6 +15,7 @@ import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
 import {getSideVideos} from '../../actions/sideVideo';
 import {updateMainVideo} from '../../actions/mainVideo';
+import {getUser} from '../../actions/user';
 
 const HomePage = ({match}) => {
 
@@ -22,9 +23,11 @@ const HomePage = ({match}) => {
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
     const mainError = useSelector(state=>state.mainVideoStore.error);
     const sideError = useSelector(state=>state.sideVideoStore.error);
+    const username = useSelector(state=>state.userStore.user.username);
 
     useEffect(()=>{
         dispatch(getSideVideos(match.params.id));
+        dispatch(getUser(username));
     },[]);
 
     useEffect(()=>{

@@ -19,7 +19,12 @@ const userReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 error:action.payload.error
-            };    
+            };
+        case 'USER_LOGOUT':
+            return{
+                initialState
+            };
+    
         default:
             return state; 
     }
