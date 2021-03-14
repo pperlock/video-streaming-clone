@@ -13,53 +13,27 @@ import VideoDetails from "../../components/VideoDetails/VideoDetails"
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
 import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
-import {getSideVideos, updateMainVideo} from '../../actions';
+import {getSideVideos} from '../../actions/sideVideo';
+import {updateMainVideo} from '../../actions/mainVideo';
 
 const HomePage = ({match}) => {
 
     const dispatch = useDispatch();
-    //url for the axios calls
-    const apiUrl = "http://localhost:8080/videos/";
-    
-    const sideVideos = useSelector(state=>state.sideVideoStore.sideVideos);
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
 
-    // const [sideVideos, setSideVideos] = useState([{id:""}]);
-    //const [mainVideo, setMainVideo] = useState({id:""});
-    const [initial, setInitial] = useState(0);
     const [error, setError] = useState("");
     
     useEffect(()=>{
-        // console.log("useEffect 1 reached");
-        //getSideVideos();
-        dispatch(getSideVideos());
+        dispatch(getSideVideos(match.params.id));
     },[]);
 
     useEffect(()=>{
-        console.log(sideVideos);
-        // console.log("useEffect Reached", match.params.id);
-        // console.log('useffect mainVideo', mainVideo.id)
-        //const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
-        //(mainVideo !== videoId  && match.path !== "/notfound") && updateMainVideo(videoId);
+        console.log("useEffect Reached", match.params.id);
+        if(sessionStorage.getItem("homeVideo")){
+            const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
+            (mainVideo !== videoId  && match.path !== "/notfound") && dispatch(updateMainVideo(videoId));
+        }
     },[match.params.id]);
-
-    /** ==================================  Function Declarations =================================================*/
-    
-    /**
-     * Function: getSideVideos
-     * Useage: Retrieves the sideVideo data from the api
-     */
-    
-    // const getSideVideos = () =>{
-    //     axios.get(apiUrl)
-    //     .then(res=>{
-    //         setSideVideos(res.data);
-    //         match.params.id ? updateMainVideo(match.params.id) : updateMainVideo(res.data[0].id);
-    //     })
-    //     .catch(err=>{
-    //         setError(err);
-    //     })
-    // }
 
     /**
      * Function: updateMainVideo
@@ -91,60 +65,7 @@ const HomePage = ({match}) => {
     //         )
     //     };
 
-    /**
-     * Function: addComment
-     * Useage: Takes in the data from the commentForm input box, posts it to the api and then updates the main video object in state
-     * @param {event from button click on CommentForm component} event 
-     */    
 
-    const addComment = (event) => {
-        event.preventDefault();
-
-        axios.post(apiUrl + mainVideo.id + "/comments",
-        {
-            "name":'Patti Perlock',
-            "comment":event.target.message.value
-        })
-        .then(res=>{
-            updateMainVideo(mainVideo.id);
-        })
-        .catch(err=>
-            setError(err)
-        );
-
-        event.target.message.value="";
-    };
-
-    /**
-     * Function: deleteComment
-     * Useage: Takes in the id associate with the comment to be deleted, removes it from the api and updates the main video object in state
-     * @param {string} commentId 
-     */
-
-    const deleteComment = (commentId)=> {
-        axios.delete(apiUrl + mainVideo.id + "/comments/" + commentId)
-        .then(res=>{
-            updateMainVideo(mainVideo.id);
-        })
-        .catch(err=>
-            setError(err)
-        );
-    }
-
-    /**
-     * Function: updateVideoLikes
-     * Useage: updates the number of likes for the video that is currently rendered onscreen
-      */
-
-    const updateVideoLikes = () =>{
-        axios.put(apiUrl + mainVideo.id + "/likes/")
-            .then(res=>{
-                updateMainVideo(mainVideo.id);
-            })
-            .catch(err=>
-                setError(err)
-            );
-    }
      /** ==================================  Component Rendering =================================================*/
     return (
         <>
@@ -152,17 +73,19 @@ const HomePage = ({match}) => {
         {error!=="" && <Redirect to={{pathname:"/notfound", state:{error:error}}}/>}
             <main className="main">
                 {/* pass the necessary keys from the mainVideo object to render the VideoPlayer component */}
-                <VideoPlayer mainVideo={mainVideo}/>
+                {/* <VideoPlayer mainVideo={mainVideo}/> */}
+                <VideoPlayer/>
                 <div className = "main__lower">
                     <div className = "main__column-left">
                         {/* render the VideoDetails component using the currentVideo object */}
-                        <VideoDetails mainVideo={mainVideo} addComment={addComment} deleteComment={deleteComment} updateVideoLikes={updateVideoLikes}/>
+                        <VideoDetails/>
                         {/* render the CommentSection component using the array stored in the comments key as long as the array is defined*/}
-                        {mainVideo.comments && <CommentsSection comments = {mainVideo.comments} addComment={addComment} deleteComment={deleteComment}/>}          
+                        {mainVideo.comments && <CommentsSection/>}          
                     </div>
                     <div className = "main__column-right">
                         {/* render the nextVideo section using the array sideVideo objects with the current video being played filtered from the list*/}
-                        <NextVideoSection sideVideos = {sideVideos.filter(video=>video.id!==mainVideo.id)}/>
+                        {/* <NextVideoSection sideVideos = {sideVideos.filter(video=>video.id!==mainVideo.id)}/> */}
+                        <NextVideoSection />
                     </div>
                 </div>
             </main>
@@ -170,21 +93,4 @@ const HomePage = ({match}) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-    //   mainVideo: state.mainVideo,
-      sideVideos: state.sideVideos
-    };
-  };
-
-//   const mapDispatchToProps = dispatch => {
-//     return {
-//       onGetSideVideos: videos => {
-//         dispatch(getSideVideos(videos));
-//       }
-//     };
-//   };
-  
-// export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
-
-export default connect(null,{getSideVideos})(HomePage);
+export default connect(null,null)(HomePage);

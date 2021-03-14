@@ -1,7 +1,11 @@
 import React from "react";
+import {connect, useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
 
 // import styling specific to the component
 import "./CommentForm.scss";
+
+import {updateMainVideo} from '../../actions/mainVideo';
 
 /**
 * COMMENT FORM COMPONENT
@@ -9,8 +13,35 @@ import "./CommentForm.scss";
 * @param {function} addComment 
 */
 
-function CommentForm ({addComment}){
- 
+function CommentForm (){
+
+    const dispatch = useDispatch();
+    const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+
+    /**
+     * Function: addComment
+     * Useage: Takes in the data from the commentForm input box, posts it to the api and then updates the main video object in state
+     * @param {event from button click on CommentForm component} event 
+     */    
+
+    const addComment = (event) => {
+        event.preventDefault();
+
+        axios.post("http://localhost:8080/videos/" + mainVideo.id + "/comments",
+        {
+            "name":'Patti Perlock',
+            "comment":event.target.message.value
+        })
+        .then(res=>{
+            dispatch(updateMainVideo(mainVideo.id));
+        })
+        .catch(err=>{
+            // setError(err)
+        });
+
+        event.target.message.value="";
+    };
+    
     return(
         <div className="new-comment">
             <div className="new-comment__avatar" style={{ backgroundImage: `url(/assets/images/Mohan-muruge.jpg)`}}></div>
@@ -26,4 +57,4 @@ function CommentForm ({addComment}){
         );
     };
 
-export default CommentForm;
+export default connect(null)(CommentForm);

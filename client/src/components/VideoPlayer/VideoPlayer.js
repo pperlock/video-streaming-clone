@@ -3,13 +3,17 @@ import React from 'react';
 //import styles specific to component
 import "./VideoPlayer.scss";
 
+import {connect, useSelector} from 'react-redux';
+
 /**
 * NEXT VIDEO COMPONENT
 * Useage: Renders the VideoPlayer object
 * @param {object} mainVideo 
 */
 
-function VideoPlayer({mainVideo}){
+function VideoPlayer(){
+
+    const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
 
     // destructure mainVideo object for code readability
     const {image, video, duration} = mainVideo;
@@ -37,4 +41,4 @@ function VideoPlayer({mainVideo}){
     );
 };
 
-export default VideoPlayer;
+export default connect(null)(VideoPlayer);

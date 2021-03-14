@@ -1,10 +1,14 @@
 import React from "react";
+import {connect, useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
 
 // import the timePassed function to be format the timestamps
 import {timePassed} from '../../globalFunctions';
 
 // import styling specific to the component
 import "./Comment.scss";
+
+import {updateMainVideo} from '../../actions/mainVideo';
 
 /**
  *COMMENTS COMPONENT
@@ -13,7 +17,26 @@ import "./Comment.scss";
  *@param {function} deleteComment 
  */
 
-function Comment({commentObject, deleteComment}){
+function Comment({commentObject}){
+
+    const dispatch = useDispatch();
+    const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+
+    /**
+     * Function: deleteComment
+     * Useage: Takes in the id associate with the comment to be deleted, removes it from the api and updates the main video object in state
+     * @param {string} commentId 
+     */
+
+    const deleteComment = (commentId)=> {
+        axios.delete("http://localhost:8080/videos/" + mainVideo.id + "/comments/" + commentId)
+        .then(res=>{
+            dispatch(updateMainVideo(mainVideo.id));
+        })
+        .catch(err=>{
+            // setError(err)
+        });
+    }
     
     const {id, name, timestamp, comment} = commentObject;
     
@@ -34,4 +57,4 @@ function Comment({commentObject, deleteComment}){
     );
 };
 
-export default Comment;
+export default connect(null)(Comment);

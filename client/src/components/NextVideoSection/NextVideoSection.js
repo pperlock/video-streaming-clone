@@ -1,6 +1,6 @@
 import React from "react";
 
-import {connect, useSelector, useDispatch} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 
 //import styles specific to component
 import "./NextVideoSection.scss";
@@ -16,15 +16,14 @@ import NextVideo from "../NextVideo/NextVideo";
 */
 
 function NextVideoSection (){
-    const dispatch = useDispatch();
-    const sideVideos = useSelector(state => state.sideVideoStore.sideVideos);
-    console.log(sideVideos);
+    const allSideVideos = useSelector(state => state.sideVideoStore.sideVideos);
+    const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+
+    const sideVideos = allSideVideos.filter(video=>video.id!==mainVideo.id);
 
     return(
         <section className="next-video-section"> 
             <p className="next-video-section__title">NEXT VIDEO</p>
-
-            {/* <h1> {sideVideos[0].id}</h1> */}
 
             {/* render a NextVideo component for each object in the sideVideos array */}
             {sideVideos.map((video)=> {

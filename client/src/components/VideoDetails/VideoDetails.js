@@ -1,12 +1,14 @@
 import React from 'react';
+import {connect, useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
 
-// import {useSelector, useDispatch} from 'react-redux';
-// import {getMainVideo} from '../../reducers/mainVideoSlice';
 
 //import styles specific to component
 import "./VideoDetails.scss";
 
 import {convertToDate} from '../../globalFunctions';
+
+import {updateMainVideo} from '../../actions/mainVideo';
 
 /**
 * NEXT VIDEO COMPONENT
@@ -16,24 +18,25 @@ import {convertToDate} from '../../globalFunctions';
 * @param {function} deleteComment
 */
 
-function VideoDetails({mainVideo, updateVideoLikes}){
+function VideoDetails(){
 
-    // const dispatch = useDispatch();
-    // const video = useSelector(state => state.mainVideo);
+    const dispatch = useDispatch();
+    const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
 
-    // console.log(video);
-
-    // const videoStatus = useSelector(state => state.mainVideo.status);
-
-    // const error = useSelector(state => state.mainVideo.error);
-
-    // useEffect(()=>{
-    //     if(videoStatus === 'pending'){
-    //         dispatch(getMainVideo(match.params))
-    //     }
-    // }, [videoStatus, dispatch])
-
-    // console.log(video.mainVideo);
+        /**
+     * Function: updateVideoLikes
+     * Useage: updates the number of likes for the video that is currently rendered onscreen
+      */
+    const updateVideoLikes = () =>{
+        axios.put("http://localhost:8080/videos/" + mainVideo.id + "/likes/")
+        .then(res=>{
+            dispatch(updateMainVideo(mainVideo.id));
+        })
+        .catch(err=>{
+            console.log(err);
+            // setError(err)
+        });
+    }
 
     // descontruct mainVideo object for code readability
     const {title, channel, timestamp, views, likes, description} = mainVideo;
@@ -59,4 +62,4 @@ function VideoDetails({mainVideo, updateVideoLikes}){
     );
 };
 
-export default VideoDetails;
+export default connect(null)(VideoDetails);
