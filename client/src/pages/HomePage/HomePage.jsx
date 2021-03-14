@@ -15,7 +15,6 @@ import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
 import {getSideVideos} from '../../actions/sideVideo';
 import {updateMainVideo} from '../../actions/mainVideo';
-import {getUser} from '../../actions/user';
 
 const HomePage = ({match}) => {
 
@@ -26,7 +25,6 @@ const HomePage = ({match}) => {
 
     useEffect(()=>{
         dispatch(getSideVideos(match.params.id));
-        dispatch(getUser('mlyons'));
     },[]);
 
     useEffect(()=>{

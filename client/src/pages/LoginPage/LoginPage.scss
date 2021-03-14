@@ -1,2 +1,33 @@
 // Import all the default styles, variables, mixins and typography
 @import "../../globalStyles";
+
+.login-body{
+    background-color:$nav-background;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing:border-box;
+    padding:10vh 0;
+    height:100vh;
+}
+
+.login{
+    width:500px;
+    height:200px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    &__username{
+        @include input-text(15px, 15px, 8px);
+        width:50%;
+    }
+    &__submit{
+        @include input-button(50%,0);
+        background-color:transparent;
+        border:1px solid $accent-color;
+        color:$accent-color;
+        font-size:15px;
+        padding:15px;
+    }
+}

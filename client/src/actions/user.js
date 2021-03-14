@@ -2,9 +2,9 @@ import {GET_USER_STARTED, GET_USER_SUCCESS, GET_USER_FAILURE} from './types';
 
 import axios from 'axios';
 
-export const getUserSuccess = video => ({
+export const getUserSuccess = user => ({
     type:GET_USER_SUCCESS,
-    payload:video
+    payload:user
 });
 
 export const getUserStarted = () => ({
@@ -17,6 +17,7 @@ export const getUserFailure = error => ({
 });
 
 export const getUser = (username)=> {
+    console.log(username);
     return (dispatch, getState) =>{
         dispatch(getUserStarted());
         axios.get("http://localhost:8080/user/" + username)
