@@ -24,6 +24,7 @@ function Comment({commentObject}){
     const dispatch = useDispatch();
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
     const error = useSelector(state=>state.errorStore.error);
+    const userId = useSelector(state=>state.userStore.user.id);
 
     /**
      * Function: deleteComment
@@ -41,13 +42,13 @@ function Comment({commentObject}){
         });
     }
     
-    const {id, name, timestamp, comment} = commentObject;
+    const {id, name, timestamp, comment, avatar} = commentObject;
     
     return(
         <>
         {error && <Redirect to="/notfound"/>}
         <div className = "comment">
-            <div className = "comment__avatar"></div>
+        <div className="new-comment__avatar" style={{ backgroundImage: `url(${avatar})`}}></div>
             <div className = "comment__details"> 
                 <div className = "comment__details-header">
                     <h2 className = "comment__details-name">{name}</h2>
@@ -55,8 +56,8 @@ function Comment({commentObject}){
                     <h2 className = "comment__details-timestamp">{timePassed(timestamp)}</h2>
                 </div>
                 <p className = "comment__details-message">{comment}</p>
-                {/* send the id of the comment to be deleted to App.js */}
-                <button onClick={()=>deleteComment(id)} className = "comment__delete-btn" data-tooltip="Delete">x</button>
+                {/* only display delete buttons for comments made by the user signed in*/}
+                {commentObject.userId === userId && <button onClick={()=>deleteComment(id)} className = "comment__delete-btn" data-tooltip="Delete">x</button>}
             </div>
         </div>
         </>

@@ -20,6 +20,7 @@ function CommentForm (){
     const dispatch = useDispatch();
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
     const error = useSelector(state=>state.errorStore.error);
+    const user = useSelector(state=>state.userStore.user);
 
     /**
      * Function: addComment
@@ -32,7 +33,9 @@ function CommentForm (){
 
         axios.post("http://localhost:8080/videos/" + mainVideo.id + "/comments",
         {
-            "name":'Patti Perlock',
+            "userId":user.id,
+            "name":user.name,
+            "avatar":user.avatar,
             "comment":event.target.message.value
         })
         .then(res=>{
@@ -49,7 +52,7 @@ function CommentForm (){
         <>
         {error && <Redirect to="/notfound"/>}
         <div className="new-comment">
-            <div className="new-comment__avatar" style={{ backgroundImage: `url(/assets/images/Mohan-muruge.jpg)`}}></div>
+            <div className="new-comment__avatar" style={{ backgroundImage: `url(${user.avatar})`}}></div>
             {/* send the comment to be added to App.js on submit */}
             <form  onSubmit={(event)=>addComment(event)} id="new-comment__form" className="new-comment__form">
                 <div className = "new-comment__form-wrapper">

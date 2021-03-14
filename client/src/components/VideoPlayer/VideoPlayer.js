@@ -18,14 +18,19 @@ function VideoPlayer(){
     // destructure mainVideo object for code readability
     const {image, video, duration} = mainVideo;
 
+    console.log(video);
+
+    console.log("/assets/videos/whisky-reverse.mp4");
+    console.log("rendered")
     return(
         <section className = "video">
             <div className="video__wrapper">
-                <video className="video__player" poster={image}>
+                <video className="video__player" poster={image} controls>
                     <source src= {video} type="video/mp4"/>
+                    {/* <source type="video/mp4" src= "/assets/videos/whisky-reverse.mp4"/> */}
                     Your browser does not support the video tag.
                 </video>
-                <div className = "video__controls">
+                {/* <div className = "video__controls">
                     <div className="video__controls-play"><img  src="/assets/icons/Icon-play.svg" alt="play button"/></div>
                     <div className="video__controls-scrubber-container">
                         <div className = "video__controls-scrubber-progress"></div>
@@ -35,7 +40,7 @@ function VideoPlayer(){
                         <img className="video__controls-fullscreen" src="/assets/icons/Icon-fullscreen.svg" alt="make fullscreen"/>
                         <img className="video__controls-volume" src="/assets/icons/Icon-volume.svg" alt="volume"/>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );

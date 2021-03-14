@@ -7,6 +7,7 @@ import {connect, useSelector, useDispatch} from 'react-redux';
 import "./HomePage.scss";
 
 //import any child components to be rendered
+import Header from '../../components/Header/Header';
 import NextVideoSection from "../../components/NextVideoSection/NextVideoSection";
 import VideoDetails from "../../components/VideoDetails/VideoDetails"
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer';
@@ -14,6 +15,7 @@ import CommentsSection from '../../components/CommentsSection/CommentsSection';
 
 import {getSideVideos} from '../../actions/sideVideo';
 import {updateMainVideo} from '../../actions/mainVideo';
+import {getUser} from '../../actions/user';
 
 const HomePage = ({match}) => {
 
@@ -24,11 +26,12 @@ const HomePage = ({match}) => {
 
     useEffect(()=>{
         dispatch(getSideVideos(match.params.id));
+        dispatch(getUser('mlyons'));
     },[]);
 
     useEffect(()=>{
         if(sessionStorage.getItem("homeVideo")){
-            const videoId = (match.path !== "/" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
+            const videoId = (match.path !== "/home" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
             (mainVideo !== videoId  && match.path !== "/notfound") && dispatch(updateMainVideo(videoId));
         }
     },[match.params.id]);
@@ -37,6 +40,7 @@ const HomePage = ({match}) => {
      /** ==================================  Component Rendering =================================================*/
     return (
         <>
+        <Header />
         {/* if an error code exists then redirect to the error page */}
             {(sideError || mainError) && <Redirect to="/notfound"/>}
             <main className="main">

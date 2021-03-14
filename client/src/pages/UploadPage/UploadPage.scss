@@ -4,7 +4,12 @@
 .upload{
     // apply the default padding for a section
     @extend .section;
-    border-top: 1px solid $divider;
+    // border-top: 1px solid $divider;
+    margin-top:170px;
+
+    @include tablet{
+        margin-top:80px;
+    }
 
     &__title{
         padding:24px 0 32px 0;

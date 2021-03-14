@@ -17,6 +17,19 @@ app.use(express.json());
 
 //import the all data from the data file
 const mainVideo = require('./data.json');
+const users = require('./users.json');
+
+//REQUEST: username
+//PARAMS: :id : id of the video to be returned
+//RETURN: the requested video in json format
+app.get('/user/:username', (req, res)=>{
+    
+    //find the video associated with the requested id
+    const requestedUser=users.find(user=> user.username===req.params.username);
+
+    //return the video associated with the requested id
+    return res.json(requestedUser);
+});
 
 //REQUEST: get route to return an array of the truncated description of the videos
 //RETURN: an array of videos
@@ -124,10 +137,12 @@ app.put('/videos/:videoId/likes', (req, res)=>{
 app.post('/videos/:id/comments', (req,res)=>{
     
     //the body of the user request should contain the following information
-    const {name, comment} = req.body;
+    const {name, comment, userId, avatar} = req.body;
 
     //create a newComment object from the body request information
     const newComment = {        
+        userId,
+        avatar,
         id: uuidv4(),
         name,
         comment,

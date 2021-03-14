@@ -1,17 +1,19 @@
 [
   {
     "id": "1af0jruup5gu",
-    "title": "BMX Rampage: 2018 Highlights",
-    "channel": "Red Cow",
-    "image": "https://i.imgur.com/l2Xfgpl.jpg",
+    "title": "Whiskey PuP: Reverse Trick",
+    "channel": "Dogs North",
+    "image": "/assets/images/whisky-reverse.png",
     "description": "On a gusty day in Southern Utah, a group of 25 daring mountain bikers blew the doors off what is possible on two wheels, unleashing some of the biggest moments the sport has ever seen. While mother nature only allowed for one full run before the conditions made it impossible to ride, that was all that was needed for event veteran Kyle Strait, who won the event for the second time -- eight years after his first Red Cow Rampage title",
     "views": "1,001,023",
     "likes": "111,002",
     "duration": "4:01",
-    "video": "https://project-2-api.herokuapp.com/stream",
+    "video": "/assets/videos/whisky-reverse.mp4",
     "timestamp": 1545162149000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -19,16 +21,18 @@
         "timestamp": 1545162149000
       },
       {
+        "userId": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
         "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
         "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-        "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
+        "userId": "993f950f-df99-48e7-bd1e-d95003cc98f1",
         "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
         "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-        "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -47,6 +51,8 @@
     "timestamp": 1537003624000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -54,16 +60,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -82,6 +90,8 @@
     "timestamp": 1534234842000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -89,16 +99,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -117,6 +129,8 @@
     "timestamp": 1536070744000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -124,16 +138,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -152,6 +168,8 @@
     "timestamp": 1518625200000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -159,16 +177,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -187,6 +207,8 @@
     "timestamp": 1545377524000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -194,16 +216,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -222,6 +246,8 @@
     "timestamp": 1520167535028,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -229,16 +255,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -257,6 +285,8 @@
     "timestamp": 1538006507000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -264,16 +294,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -292,6 +324,8 @@
     "timestamp": 1531007012000,
     "comments": [
       {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
         "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
         "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
@@ -299,16 +333,18 @@
         "timestamp": 1545162149000
       },
       {
-        "name": "Gary Wong",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "name": "Gary Wong",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
         "likes": 0,
         "timestamp": 1544595784046
       },
       {
-        "name": "Theodore Duncan",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
+        "name": "Theodore Duncan",
+        "avatar": "/assets/images/avatar-guy-3.jpg",
+        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
         "likes": 0,
         "timestamp": 1542262984046
       }
@@ -353,5 +389,31 @@
         "timestamp": 1615683297983
       }
     ]
+  },
+  {
+    "id": "efe879cd-9ef1-4466-bd07-38ce9cda7b09",
+    "title": "test",
+    "channel": "Holly Touchette",
+    "image": "/assets/images/Upload-video-preview.jpg",
+    "description": "tetst",
+    "views": "0",
+    "likes": "0",
+    "duration": "4:00",
+    "video": "randomVideo.mp4",
+    "timestamp": 1615748236216,
+    "comments": []
+  },
+  {
+    "id": "70f419e5-f2f6-4a3c-b91e-766ed61b69d1",
+    "title": "tttt",
+    "channel": "Micheal Lyons",
+    "image": "/assets/images/Upload-video-preview.jpg",
+    "description": "asdfasdfsadf",
+    "views": "0",
+    "likes": "0",
+    "duration": "4:00",
+    "video": "randomVideo.mp4",
+    "timestamp": 1615749401028,
+    "comments": []
   }
 ]

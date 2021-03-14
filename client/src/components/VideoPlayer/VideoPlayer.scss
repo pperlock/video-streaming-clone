@@ -13,10 +13,10 @@
     
     // set the height of the container to scale properly with the video
     height:56vw;
-    margin-top: 170px;
+    margin-top: 190px;
 
     @include tablet{
-        margin-top:80px;
+        margin-top:125px;
         padding:0 $mobile-padding;
         height:49.5vw;
     }

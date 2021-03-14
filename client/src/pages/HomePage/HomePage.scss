@@ -11,6 +11,8 @@
 .main{
 
     &__lower{
+        margin-top: 50px;
+        // background-color:$video-background;
         // apply the default left and right padding for a section
         @extend .section;
         padding-top:32px;

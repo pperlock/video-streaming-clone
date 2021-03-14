@@ -1,15 +1,18 @@
 // import all modules need for functionality
 import React from 'react';
 import {Redirect, Link, useHistory} from "react-router-dom";
+import {connect, useSelector} from 'react-redux';
 import axios from 'axios';
 
 //import styles specific to component
 import "./UploadPage.scss";
 
+import Header from '../../components/Header/Header';
+
 function UploadPage() {
 
     const history=useHistory();
-
+    const name = useSelector(state=>state.userStore.user.name);
     /**
      * Function: addVideo
      * Useage: posts a new video to the server
@@ -20,7 +23,7 @@ function UploadPage() {
         axios.post("http://localhost:8080/videos/",
             {
                 "title": event.target.uploadTitle.value,
-                "channel": "Patti Posts Stuff",
+                "channel": name,
                 "image":'/assets/images/Upload-video-preview.jpg',
                 "description": event.target.uploadDescription.value,
                 "views": "0",
@@ -42,6 +45,8 @@ function UploadPage() {
     }
       
     return (
+        <>
+        <Header />
         <main className="upload">
             <h1 className="upload__title">Upload Video</h1>            
             <form className="upload__form" id="upload__form" onSubmit={(event)=>addVideo(event)}>
@@ -63,7 +68,8 @@ function UploadPage() {
                 </div>
             </form>
         </main>
+        </>
     )
 }
 
-export default UploadPage
+export default connect(null)(UploadPage);

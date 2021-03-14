@@ -2,9 +2,9 @@ import {UPDATE_MAIN_STARTED, UPDATE_MAIN_SUCCESS, UPDATE_MAIN_FAILURE} from './t
 
 import axios from 'axios';
 
-export const updateMainVideoSuccess = videoId => ({
+export const updateMainVideoSuccess = video => ({
     type:UPDATE_MAIN_SUCCESS,
-    payload:videoId
+    payload:video
 });
 
 export const updateMainVideoStarted = () => ({

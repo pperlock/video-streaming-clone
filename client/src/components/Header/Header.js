@@ -1,5 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+
+import {connect, useSelector} from 'react-redux';
+
 //import styles specific to component
 import "./Header.scss";
 
@@ -7,7 +10,12 @@ import "./Header.scss";
 HEADER COMPONENT
 Includes navigation, search bar and upload capability for the site
  */
+
+
 function Header(){
+    
+    const avatar = useSelector(state=>state.userStore.user.avatar);
+    
     return(
         <header className = "header">
             <nav className = "nav-bar">
@@ -31,7 +39,7 @@ function Header(){
                         <Link className="nav-bar__upload-btn-link" to="/upload">
                             <button className = "nav-bar__upload-btn"> <img className="nav-bar__upload-btn-icon" src="/assets/icons/upload-icon.svg" alt="upload button"/> UPLOAD</button>
                         </Link>
-                        <div className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(/assets/images/Mohan-muruge.jpg)`}}> </div>
+                        <div className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(${avatar})`}}> </div>
                     </div>
                 </div>
             </nav>
@@ -39,4 +47,4 @@ function Header(){
     );
 };
 
-export default Header;
+export default connect(null)(Header);
