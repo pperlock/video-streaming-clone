@@ -15,14 +15,12 @@ export const getSideVideosStarted = () => ({
 
 export const getSideVideosFailure = error => ({
     type:GET_VIDEOS_FAILURE,
-    payload:{error}
+    payload:error
 });
 
 export const getSideVideos = (videoId)=> {
-    console.log('SIDE MIDDLEWARE STARTED');
     return (dispatch, getState) =>{
         dispatch(getSideVideosStarted());
-        console.log(getState());
         axios.get("http://localhost:8080/videos/")
         .then(res=>{
             sessionStorage.setItem("homeVideo", JSON.stringify(res.data[0]));

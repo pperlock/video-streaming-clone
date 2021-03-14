@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect, useSelector, useDispatch} from 'react-redux';
+import {Redirect} from "react-router-dom";
 import axios from 'axios';
 
 
@@ -9,6 +10,7 @@ import "./VideoDetails.scss";
 import {convertToDate} from '../../globalFunctions';
 
 import {updateMainVideo} from '../../actions/mainVideo';
+import {updateError} from '../../actions/error';
 
 /**
 * NEXT VIDEO COMPONENT
@@ -22,26 +24,28 @@ function VideoDetails(){
 
     const dispatch = useDispatch();
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+    const error = useSelector(state=>state.errorStore.error);
 
-        /**
+    /**
      * Function: updateVideoLikes
      * Useage: updates the number of likes for the video that is currently rendered onscreen
-      */
+     */
     const updateVideoLikes = () =>{
         axios.put("http://localhost:8080/videos/" + mainVideo.id + "/likes/")
         .then(res=>{
             dispatch(updateMainVideo(mainVideo.id));
         })
         .catch(err=>{
-            console.log(err);
-            // setError(err)
+            dispatch(updateError(err.message))
         });
     }
 
     // descontruct mainVideo object for code readability
     const {title, channel, timestamp, views, likes, description} = mainVideo;
 
-    return(
+     return(
+        <>
+        {error && <Redirect to="/notfound"/>}
         <section className="video-details">
             <h1 className="video-details__title"> {title}</h1>
             <div className = "video-details__middle">
@@ -59,6 +63,7 @@ function VideoDetails(){
             </div>
             <p className="video-details__description">{description}</p>
         </section>
+        </>
     );
 };
 

@@ -1,11 +1,13 @@
 import React from "react";
 import {connect, useSelector, useDispatch} from 'react-redux';
+import {Redirect} from "react-router-dom";
 import axios from 'axios';
 
 // import styling specific to the component
 import "./CommentForm.scss";
 
 import {updateMainVideo} from '../../actions/mainVideo';
+import {updateError} from '../../actions/error';
 
 /**
 * COMMENT FORM COMPONENT
@@ -17,6 +19,7 @@ function CommentForm (){
 
     const dispatch = useDispatch();
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+    const error = useSelector(state=>state.errorStore.error);
 
     /**
      * Function: addComment
@@ -36,13 +39,15 @@ function CommentForm (){
             dispatch(updateMainVideo(mainVideo.id));
         })
         .catch(err=>{
-            // setError(err)
+            dispatch(updateError(err.message));
         });
 
         event.target.message.value="";
     };
     
     return(
+        <>
+        {error && <Redirect to="/notfound"/>}
         <div className="new-comment">
             <div className="new-comment__avatar" style={{ backgroundImage: `url(/assets/images/Mohan-muruge.jpg)`}}></div>
             {/* send the comment to be added to App.js on submit */}
@@ -54,6 +59,7 @@ function CommentForm (){
                 <button type="submit" className="new-comment__form-button" id="submit"> COMMENT </button>
             </form>
         </div>  
+        </>
         );
     };
 

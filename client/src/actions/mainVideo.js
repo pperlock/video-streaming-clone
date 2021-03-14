@@ -17,14 +17,11 @@ export const updateMainVideoFailure = error => ({
 });
 
 export const updateMainVideo = (videoId)=> {
-    console.log('MAIN MIDDLEWARE STARTED');
-    
     return (dispatch, getState) =>{
         dispatch(updateMainVideoStarted());
-        console.log(getState());
         axios.get("http://localhost:8080/videos/" + videoId)
         .then(res=>{
-            dispatch(updateMainVideoSuccess(res.data));
+            res.data !== "failed" ? dispatch(updateMainVideoSuccess(res.data)) : dispatch(updateMainVideoFailure("Video Not Found"));
         })
         .catch(err=>{
             dispatch(updateMainVideoFailure(err.message));

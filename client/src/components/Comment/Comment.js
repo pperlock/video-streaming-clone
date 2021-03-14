@@ -1,5 +1,6 @@
 import React from "react";
 import {connect, useSelector, useDispatch} from 'react-redux';
+import {Redirect} from "react-router-dom";
 import axios from 'axios';
 
 // import the timePassed function to be format the timestamps
@@ -9,6 +10,7 @@ import {timePassed} from '../../globalFunctions';
 import "./Comment.scss";
 
 import {updateMainVideo} from '../../actions/mainVideo';
+import {updateError} from '../../actions/error';
 
 /**
  *COMMENTS COMPONENT
@@ -21,6 +23,7 @@ function Comment({commentObject}){
 
     const dispatch = useDispatch();
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
+    const error = useSelector(state=>state.errorStore.error);
 
     /**
      * Function: deleteComment
@@ -34,13 +37,15 @@ function Comment({commentObject}){
             dispatch(updateMainVideo(mainVideo.id));
         })
         .catch(err=>{
-            // setError(err)
+            dispatch(updateError(err.message));
         });
     }
     
     const {id, name, timestamp, comment} = commentObject;
     
     return(
+        <>
+        {error && <Redirect to="/notfound"/>}
         <div className = "comment">
             <div className = "comment__avatar"></div>
             <div className = "comment__details"> 
@@ -54,6 +59,7 @@ function Comment({commentObject}){
                 <button onClick={()=>deleteComment(id)} className = "comment__delete-btn" data-tooltip="Delete">x</button>
             </div>
         </div>
+        </>
     );
 };
 
