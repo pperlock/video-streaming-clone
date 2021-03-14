@@ -11,7 +11,7 @@ function LoginPage() {
     
     const dispatch = useDispatch();
 
-    const loggedIn = useSelector(state=>state.userStore.user.loggedIn);
+    const loggedIn = useSelector(state=>state.userStore.loggedIn);
     const loginError = useSelector(state=>state.userStore.error);
 
     const login = (event)=>{

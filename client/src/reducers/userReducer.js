@@ -1,6 +1,7 @@
 const initialState = {
     user:{},
-    error:null
+    error:null,
+    loggedIn:false
 };
 
 const userReducer = (state = initialState, action) =>{
@@ -11,7 +12,8 @@ const userReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 error:null,
-                user: action.payload
+                user: action.payload.user,
+                loggedIn:action.payload.loggedIn
             };
         case 'GET_USER_FAILURE':
             return{
