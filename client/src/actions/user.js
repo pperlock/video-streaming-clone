@@ -4,7 +4,10 @@ import axios from 'axios';
 
 export const getUserSuccess = user => ({
     type:GET_USER_SUCCESS,
-    payload:user
+    payload:{
+        user,
+        loggedIn:true
+    }
 });
 
 export const getUserStarted = () => ({
@@ -13,7 +16,10 @@ export const getUserStarted = () => ({
 
 export const getUserFailure = error => ({
     type:GET_USER_FAILURE,
-    payload:{error}
+    payload:{
+        error,
+        loggedIn:false
+    }
 });
 
 export const getUser = (username)=> {

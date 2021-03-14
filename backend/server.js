@@ -28,7 +28,7 @@ app.get('/user/:username', (req, res)=>{
     const requestedUser=users.find(user=> user.username===req.params.username);
 
     //return the video associated with the requested id
-    return res.json(requestedUser);
+    return requestedUser ? res.json(requestedUser) : res.send("failed");
 });
 
 //REQUEST: get route to return an array of the truncated description of the videos

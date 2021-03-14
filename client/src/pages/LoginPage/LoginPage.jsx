@@ -11,16 +11,14 @@ function LoginPage() {
     
     const dispatch = useDispatch();
 
-    const [loggedIn, setLoggedIn] = useState(false);
+    const loggedIn = useSelector(state=>state.userStore.user.loggedIn);
+    const loginError = useSelector(state=>state.userStore.error);
 
     const login = (event)=>{
         event.preventDefault();
-        console.log(event.target.username.value)
         dispatch(getUser(event.target.username.value));
-        setLoggedIn(true);
         event.target.username.value="";
     }
-    
 
     return (
         <>
@@ -33,6 +31,7 @@ function LoginPage() {
             <form id="login" className="login" onSubmit={login}>
                 <input name="username" className="login__username" type="text" placeholder="Enter Username"/>
                 <button form="login" className="login__submit" type="submit">LogIn</button>
+                {loginError && <p className="login__error">{loginError}</p>}
             </form>
         </div>
         </>
