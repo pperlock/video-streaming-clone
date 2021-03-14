@@ -5,7 +5,7 @@
 
 .video{
     // background color of parent container to be shown for devices >=tablet
-    background-color:black;
+    // background-color:$video-background;
     
     //flexed to center the video horizontally
     display:flex;
@@ -13,8 +13,10 @@
     
     // set the height of the container to scale properly with the video
     height:56vw;
+    margin-top: 170px;
 
     @include tablet{
+        margin-top:80px;
         padding:0 $mobile-padding;
         height:49.5vw;
     }

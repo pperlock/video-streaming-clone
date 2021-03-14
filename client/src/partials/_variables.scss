@@ -1,12 +1,17 @@
 // Color Palette
 
+$nav-background:#202020;
+$video-background:#202020;
+$accent-color:#FFDF6C;
+$accent-filter:invert(92%) sepia(22%) saturate(1148%) hue-rotate(335deg) brightness(102%) contrast(102%);
+
 // Global Fonts
-$global-text:#323232;
+$global-text:#202020;
 $global-contrast:#FFFFFF;
 
 // Form Elements
-$button-fill:#0095FF;
-$button-text:#FFFFFF;
+$button-fill:#ffdf6c;
+$button-text:#3f3f3f;
 $avatar-fill:#E1E1E1;
 $text-label: #AFAFAF;
 $text-field-border: #E1E1E1;
@@ -19,7 +24,7 @@ $button-hover:#0065AD;
 $delete-button: #FAFAFA;
 $delete-text:#AFAFAF;
 $hover-delete-fill:#AFAFAF;
-$hover-delete-text:#323232;
+$hover-delete-text:#3f3f3f;
 
 /*======================= Margins and Padding ======================= */
 

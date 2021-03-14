@@ -14,7 +14,11 @@ function Header(){
                 {/* separated into left and right for flex ability */}
                 <div className = "nav-bar--left">
                     {/* send the user to the home page when logo is clicked */}
-                    <Link className="nav-bar__logo-link" to="/"><img className="nav-bar__logo" src="/assets/images/Logo-brainflix.svg" alt="brainflix logo"/></Link>
+                    {/* <Link className="nav-bar__logo-link" to="/"><img className="nav-bar__logo" src="/assets/images/Logo-brainflix.svg" alt="brainflix logo"/></Link> */}
+                    <Link className="nav-bar__logo-link" to="/">
+                        <img className="nav-bar__logo" src="/assets/icons/video.svg" alt="brainflix logo"/>
+                        <p className="nav-bar__logo-name">video<span className="nav-bar__logo-name--accent">Streamer</span></p>
+                    </Link>
                 </div>
                 <div className = "nav-bar--right">
                     {/* right side split into two divs for detailed flexing */}
@@ -25,7 +29,7 @@ function Header(){
                     <div className = "nav-bar__upload">
                         {/* send the user to the upload page when button is clicked */}
                         <Link className="nav-bar__upload-btn-link" to="/upload">
-                            <button className = "nav-bar__upload-btn"> <img src="/assets/icons/Icon-upload.svg" alt="upload button"/> UPLOAD</button>
+                            <button className = "nav-bar__upload-btn"> <img className="nav-bar__upload-btn-icon" src="/assets/icons/upload-icon.svg" alt="upload button"/> UPLOAD</button>
                         </Link>
                         <div className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(/assets/images/Mohan-muruge.jpg)`}}> </div>
                     </div>
