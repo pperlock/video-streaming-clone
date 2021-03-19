@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import {connect, useSelector} from 'react-redux';
 
 //import styles specific to component
 import "./NextVideo.scss";
@@ -12,13 +13,15 @@ import "./NextVideo.scss";
 
 function NextVideo ({video}){
 
+        const username = useSelector(state=>state.userStore.user.username);
+
         // deconstruct the video object for code readability
         const {id,image,title,channel} = video;
 
         return(
         <div className = "next-video">
             {/* direct the user to the video page associated with the video id of the image */}
-            <Link className="next-video__link" to={"/video/" + id}>
+            <Link className="next-video__link" to={`/home/${username}/video/${id}`}>
                 {/* set the background image of the image thumbnail div - used background images because the appearance better represented mockup than img tag*/}
                 <div onClick= {()=>{window.scrollTo(0,0)}} id ={video.id} key={id} className = "next-video__thumb" style={{backgroundImage: `url(${image})`}}></div>
             </Link>
@@ -31,4 +34,4 @@ function NextVideo ({video}){
     );
 };
 
-export default NextVideo;
+export default connect(null,null)(NextVideo);

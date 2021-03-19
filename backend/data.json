@@ -1,55 +1,63 @@
 [
   {
     "id": "1af0jruup5gu",
-    "title": "Whiskey PuP: Reverse Trick",
-    "channel": "Dogs North",
-    "image": "/assets/images/whisky-reverse.png",
-    "description": "On a gusty day in Southern Utah, a group of 25 daring mountain bikers blew the doors off what is possible on two wheels, unleashing some of the biggest moments the sport has ever seen. While mother nature only allowed for one full run before the conditions made it impossible to ride, that was all that was needed for event veteran Kyle Strait, who won the event for the second time -- eight years after his first Red Cow Rampage title",
+    "title": "Travelling Northern Norway",
+    "channel": "Patti Perlock",
+    "image": "/assets/images/norway-poster.png",
+    "description": "If there is one place on earth where it doesn’t matter if it rains, if snows, or if the sun shines because it’s beautiful never the less - it must be Lofoten Islands in Norway. A  rugged mountain chain is rising up from the Gulf Stream, forming a rare and unique world. It’s wild and beautiful, with azure blue water, white beaches, green mountainsides, beautiful fjords, old fishing towns and maybe some of the most spectacular roads in the world.",
     "views": "1,001,023",
-    "likes": "111,004",
+    "likes": "111,005",
     "duration": "4:01",
     "video": "/assets/videos/whisky-reverse.mp4",
     "timestamp": 1545162149000,
     "comments": [
       {
-        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "avatar": "/assets/images/avatar-guy-2.jpg",
-        "name": "Micheal Lyons",
-        "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
-        "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
-        "timestamp": 1545162149000
-      },
-      {
         "userId": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
         "name": "Gary Wong",
         "avatar": "/assets/images/avatar-guy-4.jpg",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
+        "comment": "Very nice flying with the drone, and great views from above. I always want to visit Norway looks amazing and beautiful... see you one day Norway.",
         "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
         "likes": 0,
-        "timestamp": 1544595784046
+        "timestamp": 1545162149000
       },
       {
         "userId": "993f950f-df99-48e7-bd1e-d95003cc98f1",
         "name": "Theodore Duncan",
         "avatar": "/assets/images/avatar-guy-3.jpg",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
+        "comment": "Such a beautiful piece music and I feel like I can’t live on without it...thanks a lot for posting! Love!",
         "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
         "likes": 0,
         "timestamp": 1542262984046
+      },
+      {
+        "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "avatar": "/assets/images/avatar-guy-2.jpg",
+        "name": "Micheal Lyons",
+        "comment": "This video touches my soul so much, it is so so beautiful, the music, the scenery, its just mesmerising, watching this video gives me contentment in a mad world, thanks for sharing this ",
+        "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
+        "likes": 0,
+        "timestamp": 1544595784046
+      },
+      {
+        "userId": "1ainjruutd1j",
+        "avatar": "/assets/images/avatar-woman-3.jpg",
+        "id": "91a034d5-08d7-4044-8f9c-aead8f69fa09",
+        "name": "Holly Touchette",
+        "comment": "Such a beautiful place.  Absolutely stunning on a big screen and totally relaxing.",
+        "timestamp": 1615979519569
       }
     ]
   },
   {
     "id": "1ainjruutd1j",
-    "title": "Become A Travel Pro In One Easy Lesson",
-    "channel": "Todd Welch",
-    "image": "https://i.imgur.com/5qyCZrD.jpg",
+    "title": "Whiskey PuP: Reverse Trick",
+    "channel": "Holly Touchette",
+    "image": "/assets/images/whisky-reverse.png",
     "description": "Luxury is something everyone deserves from time to time. Such an indulgence can make a vacation a truly rejuvenating experience. This video will focus a lot on helping the first time or inexperienced traveler head out prepared and confident in themselves.",
     "views": "2,043,765",
     "likes": "400,058",
     "duration": "7:26",
-    "video": "https://project-2-api.herokuapp.com/stream",
+    "video": "/assets/videos/whisky-reverse.mp4",
     "timestamp": 1537003624000,
     "comments": [
       {
@@ -371,51 +379,5 @@
         "timestamp": 1610200980900
       }
     ]
-  },
-  {
-    "id": "394cce35-69ba-4396-ad1b-ce1d1c5d352c",
-    "title": "another",
-    "channel": "Patti Posts Stuff",
-    "image": "/assets/images/Upload-video-preview.jpg",
-    "description": "test",
-    "views": "0",
-    "likes": "4",
-    "duration": "4:00",
-    "video": "randomVideo.mp4",
-    "timestamp": 1615683062001,
-    "comments": [
-      {
-        "id": "a226fb2c-a3a8-4f62-ab85-5082423226d5",
-        "name": "Patti Perlock",
-        "comment": "This is a Redux comment",
-        "timestamp": 1615683297983
-      }
-    ]
-  },
-  {
-    "id": "efe879cd-9ef1-4466-bd07-38ce9cda7b09",
-    "title": "test",
-    "channel": "Holly Touchette",
-    "image": "/assets/images/Upload-video-preview.jpg",
-    "description": "tetst",
-    "views": "0",
-    "likes": "0",
-    "duration": "4:00",
-    "video": "randomVideo.mp4",
-    "timestamp": 1615748236216,
-    "comments": []
-  },
-  {
-    "id": "70f419e5-f2f6-4a3c-b91e-766ed61b69d1",
-    "title": "tttt",
-    "channel": "Micheal Lyons",
-    "image": "/assets/images/Upload-video-preview.jpg",
-    "description": "asdfasdfsadf",
-    "views": "0",
-    "likes": "0",
-    "duration": "4:00",
-    "video": "randomVideo.mp4",
-    "timestamp": 1615749401028,
-    "comments": []
   }
 ]

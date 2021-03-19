@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 import {connect, useSelector, useDispatch} from 'react-redux';
@@ -14,7 +14,7 @@ Includes navigation, search bar and upload capability for the site
  */
 
 
-function Header(){
+function Header({match}){
     
     const dispatch = useDispatch();
     const avatar = useSelector(state=>state.userStore.user.avatar);
@@ -29,7 +29,7 @@ function Header(){
         dispatch(userLogout);
         window.location.href = "/";
     }
-    
+
     return(
         <>
         <header className = "header">
@@ -51,7 +51,7 @@ function Header(){
                 </div>
                     <div className = "nav-bar__upload">
                         {/* send the user to the upload page when button is clicked */}
-                        <Link className="nav-bar__upload-btn-link" to="/upload">
+                        <Link className="nav-bar__upload-btn-link" to={`/upload/${match.params.username}`}>
                             <button className = "nav-bar__upload-btn"> <img className="nav-bar__upload-btn-icon" src="/assets/icons/upload-icon.svg" alt="upload button"/> UPLOAD</button>
                         </Link>
                         <div onClick={toggleMenu}className = "nav-bar__upload-avatar" style={{ backgroundImage: `url(${avatar})`}}> </div>

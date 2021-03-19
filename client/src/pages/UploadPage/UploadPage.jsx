@@ -1,18 +1,26 @@
 // import all modules need for functionality
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Redirect, Link, useHistory} from "react-router-dom";
-import {connect, useSelector} from 'react-redux';
+import {connect, useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 
 //import styles specific to component
 import "./UploadPage.scss";
 
 import Header from '../../components/Header/Header';
+import {getUser} from '../../actions/user';
 
-function UploadPage() {
+function UploadPage({match}) {
 
     const history=useHistory();
+    const dispatch = useDispatch();
     const name = useSelector(state=>state.userStore.user.name);
+    
+    console.log(match);
+    useEffect(()=>{
+        dispatch(getUser(match.params.username));
+    },[]);
+
     /**
      * Function: addVideo
      * Useage: posts a new video to the server
@@ -46,7 +54,7 @@ function UploadPage() {
       
     return (
         <>
-        <Header />
+        <Header match={match}/>
         <main className="upload">
             <h1 className="upload__title">Upload Video</h1>            
             <form className="upload__form" id="upload__form" onSubmit={(event)=>addVideo(event)}>

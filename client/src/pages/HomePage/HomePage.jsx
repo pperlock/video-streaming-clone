@@ -23,25 +23,23 @@ const HomePage = ({match}) => {
     const mainVideo = useSelector(state=>state.mainVideoStore.mainVideo);
     const mainError = useSelector(state=>state.mainVideoStore.error);
     const sideError = useSelector(state=>state.sideVideoStore.error);
-    const username = useSelector(state=>state.userStore.user.username);
 
     useEffect(()=>{
         dispatch(getSideVideos(match.params.id));
-        dispatch(getUser(username));
+        dispatch(getUser(match.params.username));
     },[]);
 
     useEffect(()=>{
         if(sessionStorage.getItem("homeVideo")){
-            const videoId = (match.path !== "/home" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
+            const videoId = (match.path !== "/home/:username" && match.path !== "/notfound") ? match.params.id : JSON.parse(sessionStorage.getItem("homeVideo")).id;
             (mainVideo !== videoId  && match.path !== "/notfound") && dispatch(updateMainVideo(videoId));
         }
     },[match.params.id]);
 
-
      /** ==================================  Component Rendering =================================================*/
     return (
         <>
-        <Header />
+        <Header match={match}/>
         {/* if an error code exists then redirect to the error page */}
             {(sideError || mainError) && <Redirect to="/notfound"/>}
             <main className="main">

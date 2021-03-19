@@ -66,6 +66,11 @@
             align-self:flex-end;
             // create an input button with default styling of a specific size
             @include input-button(225.61px,24px);
+            &:hover{
+                color:white;
+                opacity:0.6;
+                border:2px solid $accent-color;
+            }
             
             @include tablet{
                 // increase the size of the button for devices >=tablet size

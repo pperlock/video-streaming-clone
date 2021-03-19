@@ -40,6 +40,7 @@
     cursor: pointer;
     margin-bottom:$margin-bottom;
     width:$width;
+    border:2px solid transparent;
     &:focus{
         outline:none;
         border-color:$active-input;

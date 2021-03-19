@@ -15,10 +15,10 @@ function App () {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={LoginPage}/>
-                <Route path="/home" component={HomePage}/>
-                <Route path="/upload" component={UploadPage}/>
-                <Route path="/video/:id" render={(props)=>(<HomePage {...props} />)}/>
-                <Route path="/notfound"  render={(props)=>(<NotFoundPage {...props} />)}/>
+                <Route path="/home/:username" exact component={HomePage}/>
+                <Route path="/upload/:username" render={(props)=>(<UploadPage {...props} />)}/>
+                <Route path="/home/:username/video/:id" render={(props)=>(<HomePage {...props} />)}/>
+                <Route path="/notfound" render={(props)=>(<NotFoundPage {...props} />)}/>
                 <Route component={NotFoundPage}/>
             </Switch>
         </BrowserRouter>

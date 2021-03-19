@@ -13,6 +13,7 @@ function LoginPage() {
 
     const loggedIn = useSelector(state=>state.userStore.loggedIn);
     const loginError = useSelector(state=>state.userStore.error);
+    const username = useSelector(state=>state.userStore.user.username);
 
     const login = (event)=>{
         event.preventDefault();
@@ -22,7 +23,7 @@ function LoginPage() {
 
     return (
         <>
-        {loggedIn && <Redirect to="/home"></Redirect>}
+        {loggedIn && <Redirect to={`/home/${username}`}></Redirect>}
         <div className="login-body">
             <div className="nav-bar__logo-link" >
                 <img className="nav-bar__logo" src="/assets/icons/video.svg" alt="brainflix logo"/>
