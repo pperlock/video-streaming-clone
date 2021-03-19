@@ -14,7 +14,7 @@ function UploadPage({match}) {
 
     const history=useHistory();
     const dispatch = useDispatch();
-    const name = useSelector(state=>state.userStore.user.name);
+    const user = useSelector(state=>state.userStore.user);
     
     console.log(match);
     useEffect(()=>{
@@ -31,7 +31,9 @@ function UploadPage({match}) {
         axios.post("http://localhost:8080/videos/",
             {
                 "title": event.target.uploadTitle.value,
-                "channel": name,
+                "channel": user.name,
+                "avatar": user.avatar,
+                "userId": user.id,
                 "image":'/assets/images/Upload-video-preview.jpg',
                 "description": event.target.uploadDescription.value,
                 "views": "0",
@@ -40,7 +42,7 @@ function UploadPage({match}) {
                 "video":"randomVideo.mp4",
             })
         .then(res=>{
-            let path = `video/${res.data.id}`; 
+            let path = `/home/${user.username}/video/${res.data.id}`; 
             history.push(path); 
         })
         .catch(err=>{

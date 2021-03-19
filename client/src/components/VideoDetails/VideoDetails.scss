@@ -19,6 +19,11 @@
 
     }
 
+    &__avatar{
+        @include avatar();
+        margin-right:10px;
+    }
+
     //component is broken into title middle and description middle contains title, owner, timestamp, likes and views
     &__middle{
         // create a solid line between the middle section and the description
@@ -29,7 +34,7 @@
             // place the likes and views (--right) to the right of the owner and timestamp (--left) for devices >= tablet size
             display:flex;
             justify-content:space-between;
-            align-items:flex-start;
+            align-items:center;
 
         }
         @include desktop{
@@ -38,6 +43,7 @@
         &--left{
             // place the timestamp next to the owner
             display:flex;
+            align-items:center;
             margin-bottom:32px;
             @include tablet{
                 padding-top:2px;

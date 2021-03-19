@@ -1,6 +1,6 @@
 # Video Streaming Clone
 
-This project is a basic React project that employs Redux for state management demonstrating the front and backend skills required to build a video streaming clone.  A basic login screen has been applied.  Users can enter the site by providing a username which will allow them to post videos and make comments with that username and their avatar.  Proper authentication has not yet been applied.
+This project is a basic React project that employs Redux for state management demonstrating the front and backend skills required to build a video streaming site.  A basic login screen has been applied.  Users can enter the site by providing a username which will allow them to post videos and make comments with that username and their avatar.  Proper authentication has not yet been applied.
 
 To Run the Project:
 - git clone

@@ -2,7 +2,9 @@
   {
     "id": "1af0jruup5gu",
     "title": "Travelling Northern Norway",
-    "channel": "Patti Perlock",
+    "channel": "Candace Jones",
+    "avatar": "/assets/images/avatar-woman-3.jpg",
+    "userId": "1ainjruutd1j",
     "image": "/assets/images/norway-poster.png",
     "description": "If there is one place on earth where it doesn’t matter if it rains, if snows, or if the sun shines because it’s beautiful never the less - it must be Lofoten Islands in Norway. A  rugged mountain chain is rising up from the Gulf Stream, forming a rare and unique world. It’s wild and beautiful, with azure blue water, white beaches, green mountainsides, beautiful fjords, old fishing towns and maybe some of the most spectacular roads in the world.",
     "views": "1,001,023",
@@ -11,15 +13,6 @@
     "video": "/assets/videos/whisky-reverse.mp4",
     "timestamp": 1545162149000,
     "comments": [
-      {
-        "userId": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-        "name": "Gary Wong",
-        "avatar": "/assets/images/avatar-guy-4.jpg",
-        "comment": "Very nice flying with the drone, and great views from above. I always want to visit Norway looks amazing and beautiful... see you one day Norway.",
-        "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-        "likes": 0,
-        "timestamp": 1545162149000
-      },
       {
         "userId": "993f950f-df99-48e7-bd1e-d95003cc98f1",
         "name": "Theodore Duncan",
@@ -30,19 +23,10 @@
         "timestamp": 1542262984046
       },
       {
+        "id": "91a034d5-08d7-4044-8f9c-aead8f69fa09",
         "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
         "avatar": "/assets/images/avatar-guy-2.jpg",
         "name": "Micheal Lyons",
-        "comment": "This video touches my soul so much, it is so so beautiful, the music, the scenery, its just mesmerising, watching this video gives me contentment in a mad world, thanks for sharing this ",
-        "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
-        "timestamp": 1544595784046
-      },
-      {
-        "userId": "1ainjruutd1j",
-        "avatar": "/assets/images/avatar-woman-3.jpg",
-        "id": "91a034d5-08d7-4044-8f9c-aead8f69fa09",
-        "name": "Holly Touchette",
         "comment": "Such a beautiful place.  Absolutely stunning on a big screen and totally relaxing.",
         "timestamp": 1615979519569
       }
@@ -51,9 +35,11 @@
   {
     "id": "1ainjruutd1j",
     "title": "Whiskey PuP: Reverse Trick",
-    "channel": "Holly Touchette",
+    "channel": "Candace Jones",
+    "avatar": "/assets/images/avatar-woman-3.jpg",
+    "userId": "1ainjruutd1j",
     "image": "/assets/images/whisky-reverse.png",
-    "description": "Luxury is something everyone deserves from time to time. Such an indulgence can make a vacation a truly rejuvenating experience. This video will focus a lot on helping the first time or inexperienced traveler head out prepared and confident in themselves.",
+    "description": "Whisky the Cattle Dog performs her Reverse Trick.",
     "views": "2,043,765",
     "likes": "400,058",
     "duration": "7:26",
@@ -61,29 +47,20 @@
     "timestamp": 1537003624000,
     "comments": [
       {
+        "userId": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
+        "avatar": "/assets/images/avatar-guy-4.jpg",
+        "id": "b590f7d3-5231-4459-9a15-b3f59c45861d",
+        "name": "Gary Wong",
+        "comment": "Believe me when I say that all these dogs want to do is work and please it's owners. They are too smart for their own good and are extremely neurotic! Best dogs on the entire face of the planet!!",
+        "timestamp": 1616155373689
+      },
+      {
         "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
         "avatar": "/assets/images/avatar-guy-2.jpg",
+        "id": "103f28c4-3612-49ea-aae9-b28dad2a6121",
         "name": "Micheal Lyons",
-        "comment": "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of acconcert I have EVER witnessed.",
-        "id": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
-        "likes": 0,
-        "timestamp": 1545162149000
-      },
-      {
-        "id": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-        "name": "Gary Wong",
-        "avatar": "/assets/images/avatar-guy-4.jpg",
-        "comment": "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-        "likes": 0,
-        "timestamp": 1544595784046
-      },
-      {
-        "id": "993f950f-df99-48e7-bd1e-d95003cc98f1",
-        "name": "Theodore Duncan",
-        "avatar": "/assets/images/avatar-guy-3.jpg",
-        "comment": "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-        "likes": 0,
-        "timestamp": 1542262984046
+        "comment": "The only thing that keeps me from getting a cattle dog is that I cant stand losing at chess.",
+        "timestamp": 1616155535325
       }
     ]
   },
@@ -91,10 +68,12 @@
     "id": "1aivjruutn6a",
     "title": "Les Houches The Hidden Gem Of The Chamonix",
     "channel": "Cornelia Blair",
+    "avatar": "/assets/images/avatar-woman-1.jpg",
+    "userId": "1ainjruutd1j2",
     "image": "https://i.imgur.com/yFS8EBr.jpg",
     "description": "Les Houches, located 6 kilometres from Chamonix, is a ski resort with a domain which extends from an altitude of 950 metres up to 1900 metres. Long descents through tree-lined slopes are combined with impressive views of the Mont Blanc massif and the Chamonix valley. Les Houches is twinned with the Russian villages of Sochi and Krasnaya-Polyana and was chosen by the International Olympic Committee to assist in the organization of the 2014 Winter Olympic Games. Watch for more fun facts!",
     "views": "16,950",
-    "likes": "3,857",
+    "likes": "3,858",
     "duration": "4:13",
     "video": "https://project-2-api.herokuapp.com/stream",
     "timestamp": 1534234842000,
@@ -130,6 +109,8 @@
     "id": "1a3cjruucpf7",
     "title": "Travel Health Useful Medical Information For",
     "channel": "Glen Harper",
+    "avatar": "/assets/images/avatar-woman-2.jpg",
+    "userId": "1ainjruutd1j3",
     "image": "https://i.imgur.com/MMDMgD7.jpg",
     "description": "Concerned about your health while travelling? You should know that international travellers should always be extra concerned about their health and safety. This video provides essential information on travel health risks and preventive measures to keep you and your loved ones safe during your travels.",
     "views": "739,945",
@@ -169,6 +150,8 @@
     "id": "1am3jruuwagz",
     "title": "Cheap Airline Tickets Great Ways To Save",
     "channel": "Emily Harper",
+    "avatar": "/assets/images/avatar-woman-4.jpg",
+    "userId": "1ainjruutd1j4",
     "image": "https://i.imgur.com/ibLw5q5.jpg",
     "description": "Want to know how to get cheap flights? This video has great tips on how to book the cheapest flight possible to anywhere in the world. Remember, Keep your searches top secret. Use the best flight search engines. Identify the cheapest day to fly out. Fly for free with points. Befriend budget airlines. Search for airline error and sale fares. Book connecting flights yourself for less. ",
     "views": "72,342",
@@ -207,7 +190,9 @@
   {
     "id": "1akljruuvhzt",
     "title": "Take A Romantic Break In A Boutique Hotel",
-    "channel": "Ethan Owen",
+    "channel": "Michael Lyons",
+    "avatar": "/assets/images/avatar-guy-2.jpg",
+    "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
     "image": "https://i.imgur.com/7rD6Mf6.jpg",
     "description": "Your loved one has been dreaming about a romantic getaway with you, if you want to bring the spark back into your relationship this is the place to go! Small and design-forward, boutique hotels promise a more intimate vacation stay, each one chock-full of character while offering plenty of inimitable features (from exposed brick to panoramic ocean views)",
     "views": "345,987",
@@ -246,7 +231,9 @@
   {
     "id": "1ae5jruuoc4q",
     "title": "Choose the Perfect Accommodations",
-    "channel": "Lydia Perez",
+    "channel": "Michael Lyons",
+    "avatar": "/assets/images/avatar-guy-2.jpg",
+    "userId": "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
     "image": "https://i.imgur.com/0hi3N4B.jpg",
     "description": "Worried about finding the perfect travel accommodations? There are many things to consider when booking an accommodation. Consider picking the right location. Location is an important consideration for an enjoyable stay. Check the rating and price. Consider apartment or condo rentals. Weigh the food options. Is it family-friendly? Watch for extra fees. Assess the on-site amenities.",
     "views": "252,796",
@@ -285,7 +272,9 @@
   {
     "id": "1a4kjruuedd9",
     "title": "Cruising Destination Ideas",
-    "channel": "Timothy Austin",
+    "channel": "Gary Wong",
+    "avatar": "/assets/images/avatar-guy-4.jpg",
+    "userId": "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
     "image": "https://i.imgur.com/DDJNZNw.jpg",
     "description": "Do you dream of sailing in to the sunset without a care in the world? Going on a cruise can be the perfect way to make this dream come true. If you’re considering taking your very first cruise, think about the various advantages. A cruise vacation offers great value as almost everything is included, from accommodation and food to entertainment and transfers.",
     "views": "29,984",
@@ -324,7 +313,9 @@
   {
     "id": "1a8qhruuzky3",
     "title": "Train Travel On Track For Safety",
-    "channel": "Scotty Cranmer",
+    "channel": "Theodore Duncan",
+    "avatar": "/assets/images/avatar-guy-3.jpg",
+    "userId": "993f950f-df99-48e7-bd1e-d95003cc98f1",
     "image": "https://i.imgur.com/i6S8m7I.jpg",
     "description": "Traveling by train can be convenient, enjoyable and economical. You can minimize your risk of injury, illness, and theft by taking a few simple precautions. Before you travel, you should pack only the necessities. This will make your luggage easy to carry and store during your travels. You should always assume that the tap water on the train is not potable. Whenever it is possible, stock up on bottles of water to reduce the risk of dehydration. Remember, never accept food or drinks from strangers!",
     "views": "3,092,284",

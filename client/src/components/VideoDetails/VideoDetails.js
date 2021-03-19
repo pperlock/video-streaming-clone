@@ -41,15 +41,17 @@ function VideoDetails(){
     }
 
     // descontruct mainVideo object for code readability
-    const {title, channel, timestamp, views, likes, description} = mainVideo;
+    const {title, channel, avatar, timestamp, views, likes, description} = mainVideo;
 
      return(
         <>
         {error && <Redirect to="/notfound"/>}
         <section className="video-details">
+            
             <h1 className="video-details__title"> {title}</h1>
             <div className = "video-details__middle">
                 <div className="video-details__middle--left">
+                <div className = "video-details__avatar" style={{ backgroundImage: `url(${avatar})`}}> </div>
                     <h2 className="video-details__owner">{channel}</h2>
                     {/* Render the timestamp in a more readable format */}
                     <h2 className="video-details__date"> {convertToDate(timestamp)}</h2>

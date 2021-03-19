@@ -53,13 +53,15 @@ app.route('/videos')
     .post((req,res)=>{
         
         //the body of the user request should contain the following information
-        const {title, channel, image, description, views, likes, duration,video} = req.body;
+        const {title, channel, avatar, userId, image, description, views, likes, duration,video} = req.body;
         
         //create a newVideo object from the body request information
         const newVideo={
             id:uuidv4(),
             title,
             channel,
+            avatar,
+            userId,
             image,
             description,
             views,
