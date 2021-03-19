@@ -5,6 +5,7 @@ This project is a basic React project that employs Redux for state management de
 To Run the Project:
 - git clone
 - npm i
+- npm start, nodemon server.js
 - sign in with one of the following usernames: mlyons, gwong, tduncan, cjones
 
 Tech Stack:
