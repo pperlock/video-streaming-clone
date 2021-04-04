@@ -199,6 +199,8 @@ app.delete('/videos/:videoId/comments/:commentId', (req,res)=>{
 
 });
 
-//set the server up on port 8080
-app.listen(5000, console.log('Listening on port 5000'));
+//instead of hard setting the port, use the port that heroku dynamically sets
+app.listen(process.env.PORT || 5000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
 
