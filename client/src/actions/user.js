@@ -30,7 +30,6 @@ export const userLogout = ()=>({
 
 export const getUser = (username)=> {
     return (dispatch, getState) =>{
-        console.log(`${API_URL}/user/${username}`);
         dispatch(getUserStarted());
         axios.get(`${API_URL}/user/${username}`)
         .then(res=>{

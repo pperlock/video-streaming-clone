@@ -20,7 +20,6 @@ export const updateMainVideoFailure = error => ({
 
 export const updateMainVideo = (videoId)=> {
     return (dispatch, getState) =>{
-        console.log(`${API_URL}videos/${videoId}`);
         dispatch(updateMainVideoStarted());
         axios.get(`${API_URL}/videos/${videoId}`)
         .then(res=>{

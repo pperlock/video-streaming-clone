@@ -88,6 +88,31 @@ app.route('/videos')
         res.json(newVideo);
     })
 
+
+//REQUEST: delete request to remove a specific video
+//PARAMS: :videoId=>id of the video to be removed
+//RETURN: the deleted video in json format
+app.delete('/videos/:videoId', (req,res)=>{
+    
+    //find the location in the array of the video that should be removed
+    const requestedVideoIndex=mainVideo.findIndex(video=> video.id===req.params.videoId);
+    
+    //remove the video from the array
+    deletedVideo = mainVideo.splice(requestedVideoIndex,1);
+    
+    //return the deleted comment
+    res.send(deletedVideo);
+
+    //format the json object to a string 
+    data = JSON.stringify(mainVideo,null,2);
+
+    //write the formated object to the data store
+    fs.writeFile('./data.json', data, ()=>{
+        console.log("Data removed from server");
+    });
+
+});
+
 //REQUEST: get route to access a specific video
 //PARAMS: :id : id of the video to be returned
 //RETURN: the requested video in json format

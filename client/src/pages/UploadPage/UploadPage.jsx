@@ -10,13 +10,14 @@ import "./UploadPage.scss";
 import Header from '../../components/Header/Header';
 import {getUser} from '../../actions/user';
 
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com': 'http://localhost:5000';
+
 function UploadPage({match}) {
 
     const history=useHistory();
     const dispatch = useDispatch();
     const user = useSelector(state=>state.userStore.user);
-    
-    console.log(match);
+
     useEffect(()=>{
         dispatch(getUser(match.params.username));
     },[]);
@@ -28,7 +29,7 @@ function UploadPage({match}) {
     */
     const addVideo = (event) =>{
         event.preventDefault();
-        axios.post("http://localhost:8080/videos/",
+        axios.post(`${API_URL}/videos/`,
             {
                 "title": event.target.uploadTitle.value,
                 "channel": user.name,
@@ -50,8 +51,7 @@ function UploadPage({match}) {
         });
 
         //reset the input boxes once uploaded
-        event.target.uploadTitle.value = "";
-        event.target.uploadDescription.value = "";
+        event.target.reset();
     }
       
     return (

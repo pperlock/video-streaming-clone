@@ -66,39 +66,40 @@
         }
     }
     &__delete-btn{
-        width:20px;
-        border-radius:4px;
-        background-color:$delete-button;
-        color:$delete-text;
-        height:20px;
-        padding:2px;
-        align-self:flex-end;
-        font-size:12px;
-        border:none;
-        cursor: pointer;
-        //positioned relative for tooltip
-        position:relative;
+        @extend .delete-btn;
+        // width:20px;
+        // border-radius:4px;
+        // background-color:$delete-button;
+        // color:$delete-text;
+        // height:20px;
+        // padding:2px;
+        // align-self:flex-end;
+        // font-size:12px;
+        // border:none;
+        // cursor: pointer;
+        // //positioned relative for tooltip
+        // position:relative;
 
-        &:hover{
-            color:$hover-delete-text;
-        }
+        // &:hover{
+        //     color:$hover-delete-text;
+        // }
 
-        // format the pseudo-element with the tool-tip data identify the function of the delete button
-        &::before{
-            content: attr(data-tooltip);
-            display:none;
-            left:-12px;
-            bottom:20px;
-            font-size: 12px;
-            padding: 1px 5px;
-            color: white;
-            border-radius:4px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        // only show the tool tip when you hover over the delete button
-        &:hover::before {
-            position:absolute;
-            display: block;
-        }
+        // // format the pseudo-element with the tool-tip data identify the function of the delete button
+        // &::before{
+        //     content: attr(data-tooltip);
+        //     display:none;
+        //     left:-12px;
+        //     bottom:20px;
+        //     font-size: 12px;
+        //     padding: 1px 5px;
+        //     color: white;
+        //     border-radius:4px;
+        //     background: rgba(0, 0, 0, 0.5);
+        // }
+        // // only show the tool tip when you hover over the delete button
+        // &:hover::before {
+        //     position:absolute;
+        //     display: block;
+        // }
     }
 }

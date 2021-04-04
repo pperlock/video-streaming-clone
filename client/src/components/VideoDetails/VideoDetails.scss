@@ -99,5 +99,23 @@
             width:90%;
             padding:35px 0;
         }
+
+        &-wrapper{
+            display:flex;
+            flex-direction:column;
+        }
+    }
+
+    &__delete-btn{
+        @extend .delete-btn;
+        margin-bottom:10px;
+        @include desktop{
+            margin-right:32px;
+        }
+        &::before{
+            width:70px;
+            left:-90px;
+            bottom:0px;
+        }
     }
 }
