@@ -1,0 +1,23 @@
+{
+  "name": "video-streaming-clone",
+  "version": "1.0.0",
+  "description": "This project is a basic React project that employs Redux for state management demonstrating the front and backend skills required to build a video streaming site.  A basic login screen has been applied.  Users can enter the site by providing a username which will allow them to post videos and make comments with that username and their avatar.  Proper authentication has not yet been applied.",
+  "main": "index.js",
+  "dependencies": {
+    "redux-devtools-extension": "^2.13.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pperlock/video-streaming-clone.git"
+  },
+  "author": "Patti Perlock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pperlock/video-streaming-clone/issues"
+  },
+  "homepage": "https://github.com/pperlock/video-streaming-clone#readme"
+}
