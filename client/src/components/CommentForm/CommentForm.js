@@ -9,6 +9,8 @@ import "./CommentForm.scss";
 import {updateMainVideo} from '../../actions/mainVideo';
 import {updateError} from '../../actions/error';
 
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+
 /**
 * COMMENT FORM COMPONENT
 * Useage: Renders a comment form
@@ -31,7 +33,7 @@ function CommentForm (){
     const addComment = (event) => {
         event.preventDefault();
 
-        axios.post("http://localhost:8080/videos/" + mainVideo.id + "/comments",
+        axios.post(`${API_URL}/videos/${mainVideo.id}/comments`,
         {
             "userId":user.id,
             "name":user.name,

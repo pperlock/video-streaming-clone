@@ -12,6 +12,8 @@ import "./Comment.scss";
 import {updateMainVideo} from '../../actions/mainVideo';
 import {updateError} from '../../actions/error';
 
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+
 /**
  *COMMENTS COMPONENT
  *Useage: Renders the details of a comment object
@@ -33,7 +35,7 @@ function Comment({commentObject}){
      */
 
     const deleteComment = (commentId)=> {
-        axios.delete("http://localhost:8080/videos/" + mainVideo.id + "/comments/" + commentId)
+        axios.delete(`${API_URL}/videos/${mainVideo.id}/comments/${commentId}`)
         .then(res=>{
             dispatch(updateMainVideo(mainVideo.id));
         })

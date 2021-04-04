@@ -12,6 +12,8 @@ import {convertToDate} from '../../globalFunctions';
 import {updateMainVideo} from '../../actions/mainVideo';
 import {updateError} from '../../actions/error';
 
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+
 /**
 * NEXT VIDEO COMPONENT
 * Useage: Renders the details of a video object
@@ -31,7 +33,7 @@ function VideoDetails(){
      * Useage: updates the number of likes for the video that is currently rendered onscreen
      */
     const updateVideoLikes = () =>{
-        axios.put("http://localhost:8080/videos/" + mainVideo.id + "/likes/")
+        axios.put(`${API_URL}/videos/${mainVideo.id}/likes/`)
         .then(res=>{
             dispatch(updateMainVideo(mainVideo.id));
         })

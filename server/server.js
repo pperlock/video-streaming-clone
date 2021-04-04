@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
 
 //Middleware used to avoid CORS issues
 app.use((req,res,next)=>{
@@ -203,4 +204,14 @@ app.delete('/videos/:videoId/comments/:commentId', (req,res)=>{
 app.listen(process.env.PORT || 5000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
+
+  
+if (process.env.NODE_ENV === "production") {
+    // Set static folder
+    app.use(express.static("../client/build"));
+  
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
+    });
+}
 
