@@ -2,6 +2,8 @@ import {GET_USER_STARTED, GET_USER_SUCCESS, GET_USER_FAILURE, USER_LOGOUT} from 
 
 import axios from 'axios';
 
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+
 export const getUserSuccess = user => ({
     type:GET_USER_SUCCESS,
     payload:{
@@ -29,7 +31,7 @@ export const userLogout = ()=>({
 export const getUser = (username)=> {
     return (dispatch, getState) =>{
         dispatch(getUserStarted());
-        axios.get("http://localhost:8080/user/" + username)
+        axios.get(`${API_URL}/user/${username}`)
         .then(res=>{
             res.data !== "failed" ? dispatch(getUserSuccess(res.data)) : dispatch(getUserFailure("User Not Found"));
         })

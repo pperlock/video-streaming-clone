@@ -200,5 +200,5 @@ app.delete('/videos/:videoId/comments/:commentId', (req,res)=>{
 });
 
 //set the server up on port 8080
-app.listen(8080, console.log('Listening on port 8080'));
+app.listen(5000, console.log('Listening on port 5000'));
 
