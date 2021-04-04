@@ -12,7 +12,7 @@ import "./Comment.scss";
 import {updateMainVideo} from '../../actions/mainVideo';
 import {updateError} from '../../actions/error';
 
-const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com': 'http://localhost:5000';
 
 /**
  *COMMENTS COMPONENT

@@ -3,7 +3,7 @@ import {GET_VIDEOS_STARTED, GET_VIDEOS_SUCCESS, GET_VIDEOS_FAILURE} from './type
 import axios from 'axios';
 
 import {updateMainVideo} from './mainVideo';
-const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com': 'http://localhost:5000';
 
 export const getSideVideosSuccess = videos => ({
     type:GET_VIDEOS_SUCCESS,

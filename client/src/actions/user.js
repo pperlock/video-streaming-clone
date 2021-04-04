@@ -2,7 +2,7 @@ import {GET_USER_STARTED, GET_USER_SUCCESS, GET_USER_FAILURE, USER_LOGOUT} from 
 
 import axios from 'axios';
 
-const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com/': 'http://localhost:5000';
+const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com': 'http://localhost:5000';
 
 export const getUserSuccess = user => ({
     type:GET_USER_SUCCESS,

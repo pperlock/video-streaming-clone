@@ -12,7 +12,6 @@ import NextVideo from "../NextVideo/NextVideo";
 /**
 * NEXT VIDEO SECTION COMPONENT
 * Useage: Renders the details of a video object
-* @param {array[objects]} sideVideos 
 */
 
 function NextVideoSection (){
@@ -33,6 +32,5 @@ function NextVideoSection (){
     );
 };
 
-// export default NextVideoSection;
 
 export default connect(null)(NextVideoSection);
