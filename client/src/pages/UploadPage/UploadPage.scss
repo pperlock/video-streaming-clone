@@ -4,7 +4,6 @@
 .upload{
     // apply the default padding for a section
     @extend .section;
-    // border-top: 1px solid $divider;
     margin-top:170px;
 
     @include tablet{
@@ -12,11 +11,7 @@
     }
 
     &__title{
-        padding:24px 0 32px 0;
-
-        @include tablet{
-            padding-top:48px;
-        }
+        padding:48px 0 20px 0;
     }
 
     &__upper{
@@ -27,25 +22,48 @@
         }
     }
 
+    &__files{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        @include tablet{
+            flex-direction:row;
+            justify-content: center;
+        }
+        @include desktop{
+            width:140%;
+        }
+    }
+
     // wrapper created around image to include the title for alignment
     &__thumb-wrapper{
-        width:100%;
+        width:98%;
         height:54vw;
-        padding-bottom:32px;
+        // padding-bottom:32px;
+        margin-bottom:20px;
+        border-radius:4px;
+        border: 2px $accent-color solid;
+        background-size:cover;
+        background-position:center;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        max-height:223px;
+        max-width: 364px;
 
         @include tablet{
             width:45%;
             height:24vw;
-            padding-bottom:40px;
+            margin:20px;
+            margin-top:0;
         }
         @include desktop{
-            width:48.5%;
-            height:17vw;
-            padding-right: 24px;
+            margin-right:24px;
             max-height:205px;
             max-width:344px;
-            min-height:183px;
-            min-width:344px;
+            min-height:205px;
+            min-width:256px;
         }
         
     }
@@ -59,11 +77,8 @@
         //apply the default global styles for labels
         @extend .label;
     }
-    &__thumb{
-        border-radius:4px;
-        width:100%;
-        // set to a small percentage of the wrapper to include the label above
-        height:89%;
+    &__loading{
+        width:50%;
     }
     &__form{
         display:flex;
@@ -81,7 +96,7 @@
         padding-right:16px;
 
         @include tablet{
-            height:1rem;
+            // height:1rem;
             margin-bottom:40px;
         }
         @include desktop{
@@ -91,8 +106,11 @@
    
     // section allows for the flexing of the publish and cancel buttons
     &__lower{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
         @include tablet{
-            display:flex;
+            flex-direction:row;
             justify-content:flex-end;
             align-items:baseline;
             border-top:1px solid $divider;
@@ -114,11 +132,17 @@
     }
     &__cancel{
         // move the cancel link to the left of the publish button for devices >=tablet size
-        order:-1;
+        // order:-1;
+        width:100%;
         font-size:16px;
         text-align:center;
         margin-bottom:24px;
         color:$global-text;
+
+        @include tablet{
+            order:-1;
+            text-align:right;
+        }
     }
 
 }
