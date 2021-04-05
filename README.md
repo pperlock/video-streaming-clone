@@ -1,15 +1,21 @@
 # Video Streaming Clone
 
-This project is a basic React project that employs Redux for state management demonstrating the front and backend skills required to build a video streaming site.  A basic login screen has been applied.  Users can enter the site by providing a username which will allow them to post videos and make comments with that username and their avatar.  Proper authentication has not yet been applied.
+This project is a basic React project that employs Redux for state management demonstrating the front and backend skills required to build a responsive video streaming site.  A basic login screen has been applied but proper authentication and user sign up is not yet available.  Users can enter the site by providing a username which will allow them to post and delete videos or contribute and delete comments with their username and their avatar.
 
-To Run the Project:
+Visit the deployed app at 
+# https://video-streaming-clone.herokuapp.com/ 
+and sign in with one of the following usernames: mlyons, gwong, tduncan, cjones 
+
+OR
+
+Run the Project locally:
 - git clone
 - npm i
 - npm start, nodemon server.js
 - sign in with one of the following usernames: mlyons, gwong, tduncan, cjones
 
 Tech Stack:
-Front End: React, Redux, HTML, SASS, Responsive Design, Mockup Realization.
+Front End: React, Redux, HTML, SASS, Firebase Storage, Responsive Design, Mockup Realization.
 Back End: Node, Express.
 
 
