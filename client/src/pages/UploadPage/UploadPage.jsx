@@ -10,7 +10,6 @@ import "./UploadPage.scss";
 
 import Header from '../../components/Header/Header';
 import {getUser} from '../../actions/user';
-import {updateMainVideo} from '../../actions/mainVideo';
 
 const API_URL = process.env.NODE_ENV === "production" ? 'https://video-streaming-clone.herokuapp.com': 'http://localhost:5000';
 
