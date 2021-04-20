@@ -38,7 +38,7 @@ function VideoDetails(){
      * Useage: updates the number of likes for the video that is currently rendered onscreen
      */
     const updateVideoLikes = () =>{
-        axios.put(`${API_URL}/videos/${mainVideo.id}/likes/`)
+        axios.put(`${API_URL}/api/videos/${mainVideo.id}/likes/`)
         .then(res=>{
             dispatch(updateMainVideo(mainVideo.id));
         })
@@ -48,7 +48,7 @@ function VideoDetails(){
     }
 
     const deleteVideo = (videoId)=> {
-        axios.delete(`${API_URL}/videos/${videoId}`)
+        axios.delete(`${API_URL}/api/videos/${videoId}`)
         .then(res=>{
             let path = `/home/${username}/video/${sideVideos[0].id}`; 
             history.push(path); 

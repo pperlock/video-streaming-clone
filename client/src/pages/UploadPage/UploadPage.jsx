@@ -1,6 +1,6 @@
 // import all modules need for functionality
-import React, {useEffect, useState} from 'react';
-import {Redirect, Link, useHistory} from "react-router-dom";
+import React, {useEffect, useState, useRef} from 'react';
+import {Link, useHistory} from "react-router-dom";
 import {connect, useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 import firebase from '../../firebase';
@@ -19,6 +19,10 @@ function UploadPage({match}) {
     const dispatch = useDispatch();
     const user = useSelector(state=>state.userStore.user);
 
+    //refs for the hidden file input boxes
+    const thumbInput = useRef(null);
+    const videoInput = useRef(null);
+
     useEffect(()=>{
         dispatch(getUser(match.params.username));
     },[]);
@@ -29,7 +33,6 @@ function UploadPage({match}) {
     const [showLoadingThumb, setShowLoadingThumb] = useState(false);
     const [showLoadingVideo, setShowLoadingVideo] = useState(false);
 
-
     /**
      * Function: addVideo
      * Useage: posts a new video to the server
@@ -37,7 +40,7 @@ function UploadPage({match}) {
     */
     const addVideo = (event) =>{
         event.preventDefault();
-        axios.post(`${API_URL}/videos/`,
+        axios.post(`${API_URL}/api/videos/`,
             {
                 "title": event.target.uploadTitle.value,
                 "channel": user.name,
@@ -54,52 +57,60 @@ function UploadPage({match}) {
             let path = `/home/${user.username}/video/${res.data.id}`; 
             history.push(path); 
         })
-        .catch(err=>{
-            <Redirect to={{pathname:"/notfound", state:{error:err}}}/>
-        });
+        .catch(err =>
+            console.log(err)
+        );
     }
 
+    const uploadToFirebase = (selectedFile, type) => {
+        console.log(selectedFile);
+        // Use DataTransferItemList interface to access the file(s)
+          let bucketName = "video-posters";
+          let storageRef = firebase.storage().ref(`/${bucketName}/${selectedFile.name}`);
+          let uploadTask = storageRef.put(selectedFile);
+          uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+              //next
+              ()=>{
+                  console.log("Uploading ...")
+                  //show the loading icon while resource is uploading
+                  type === "thumb" ? setShowLoadingThumb(true) : setShowLoadingVideo(true);
+              },
+              //error
+              ()=>{
+                  console.log("Upload Unsuccessful");
+              },
+              //complete
+              ()=>{
+                  let storageLoc = firebase.storage().ref();
+                  storageLoc.child(`/${bucketName}/${selectedFile.name}`).getDownloadURL()
+                  .then((url)=>{
+                      type === "thumb" ? setThumbURL(url) : setVideoURL(url);
+                      //stop showing the loading icon
+                      type === "thumb" ? setShowLoadingThumb(false) : setShowLoadingVideo(false);
+                  })
+                  .catch(err=>{
+                      console.log(err);
+                  })
+              }   
+          )
+    }
 
-    const onDrop = (event,type) =>{
+    const fileSelectedHandler = (event, type) => {
+        event.preventDefault();
+        uploadToFirebase(event.target.files[0], type);
+    }
+
+    const onDrop = (event,type) => {
         //prevents the file from being opened
         console.log(event.dataTransfer.files);
         event.preventDefault();
 
-       // Use DataTransferItemList interface to access the file(s)
         for (var i = 0; i < event.dataTransfer.items.length; i++) {
-              // If dropped items aren't files, reject them
-            if (event.dataTransfer.items[i].kind === 'file') {
-                var file = event.dataTransfer.items[i].getAsFile();
-            }
-        
-            let bucketName = "video-posters";
-            let storageRef = firebase.storage().ref(`/${bucketName}/${file.name}`);
-            let uploadTask = storageRef.put(file);
-            uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-                //next
-                ()=>{
-                    console.log("Uploading ...")
-                    //show the loading icon while resource is uploading
-                    type === "thumb" ? setShowLoadingThumb(true) : setShowLoadingVideo(true);
-                },
-                //error
-                ()=>{
-                    console.log("Upload Unsuccessful");
-                },
-                //complete
-                ()=>{
-                    let storageLoc = firebase.storage().ref();
-                    storageLoc.child(`/${bucketName}/${file.name}`).getDownloadURL()
-                    .then((url)=>{
-                        type === "thumb" ? setThumbURL(url) : setVideoURL(url);
-                        //stop showing the loading icon
-                        type === "thumb" ? setShowLoadingThumb(false) : setShowLoadingVideo(false);
-                    })
-                    .catch(err=>{
-                        console.log(err);
-                    })
-                }   
-            )
+            // If dropped items aren't files, reject them
+          if (event.dataTransfer.items[i].kind === 'file') {
+            //   setSelectedFile(event.dataTransfer.items[i].getAsFile());
+             uploadToFirebase(event.dataTransfer.items[i].getAsFile(), type);
+          }
         }
     }
 
@@ -120,16 +131,39 @@ function UploadPage({match}) {
             <form className="upload__form" id="upload__form" onSubmit={(event)=>addVideo(event)}>
                 <div className="upload__upper">
                     <div className="upload__files">
-                        <div id="drop-thumb" onDrop={(event)=>onDrop(event,"thumb")} onDragEnter={onDragEnter} onDragOver={onDragOver} className="upload__thumb-wrapper"
+                        <div id="drop-thumb" 
+                            onDrop={(event)=>onDrop(event,"thumb")} 
+                            onDragEnter={onDragEnter} 
+                            onDragOver={onDragOver} 
+                            className="upload__thumb-wrapper"
                             style={{backgroundImage: `url(${thumbURL})`}}>
-                            {(!thumbURL && !showLoadingThumb) && <p className="upload__text">DROP VIDEO THUMBNAIL HERE</p>}
+                            {(!thumbURL && !showLoadingThumb) &&
+                                <div className = "upload__file-wrapper">
+                                    <input type="file" style={{display:'none'}}  ref={thumbInput} onChange={event => fileSelectedHandler(event,"thumb")}></input>
+                                    {/* activate the hidden file input through the ref */}
+                                    <button className="upload__file-button" type="button" onClick = {()=> thumbInput.current.click()}>Select Thumbnail File</button>
+                                    <p className="upload__file-text"> OR DROP FILE HERE</p>
+                                </div>
+                            }
                             {showLoadingThumb && <img className="upload__loading" src="/assets/icons/loading-icon.gif" alt="loading icon"/>}
+                            {(thumbURL && !showLoadingThumb) && <p className="upload__file-success">SUCCESS</p>}
                         </div>
-                        <div id="drop-video" onDrop={(event)=>onDrop(event,"video")} onDragEnter={onDragEnter} onDragOver={onDragOver} className="upload__thumb-wrapper"
+                        <div id="drop-video" 
+                            onDrop={(event)=>onDrop(event,"video")} 
+                            onDragEnter={onDragEnter} 
+                            onDragOver={onDragOver} 
+                            className="upload__thumb-wrapper"
                             style={videoURL ? {backgroundImage: `url(${thumbURL})`} : {backgroundImage: `url("")`}}>
-                            {(!videoURL && !showLoadingVideo) && <p className="upload__text">DROP VIDEO FILE HERE</p>}
-                            {(videoURL && !showLoadingVideo) && <p className="upload__text">VIDEO LOADED</p>}
+                            {(!videoURL && !showLoadingVideo) && 
+                                <div className = "upload__file-wrapper">
+                                    <input type="file" style={{display:'none'}} ref={videoInput} onChange={event => fileSelectedHandler(event,"video")}></input>
+                                    {/* activate the hidden file input through the ref */}
+                                    <button className="upload__file-button" type="button" onClick = {()=> videoInput.current.click()}>Select Video File</button>
+                                    <p className="upload__file-text"> OR DROP FILE HERE</p>
+                                </div>
+                            }
                             {showLoadingVideo && <img className="upload__loading" src="/assets/icons/loading-icon.gif" alt="loading icon"/>}
+                            {(videoURL && !showLoadingVideo) && <p className="upload__file-success">SUCCESS</p>}
                         </div>
                     </div>
                     <div className="upload__inputs">

@@ -33,7 +33,7 @@ function CommentForm (){
     const addComment = (event) => {
         event.preventDefault();
 
-        axios.post(`${API_URL}/videos/${mainVideo.id}/comments`,
+        axios.post(`${API_URL}/api/videos/${mainVideo.id}/comments`,
         {
             "userId":user.id,
             "name":user.name,

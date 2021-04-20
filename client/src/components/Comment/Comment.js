@@ -35,7 +35,7 @@ function Comment({commentObject}){
      */
 
     const deleteComment = (commentId)=> {
-        axios.delete(`${API_URL}/videos/${mainVideo.id}/comments/${commentId}`)
+        axios.delete(`${API_URL}/api/videos/${mainVideo.id}/comments/${commentId}`)
         .then(res=>{
             dispatch(updateMainVideo(mainVideo.id));
         })

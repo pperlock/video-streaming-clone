@@ -31,7 +31,7 @@ export const userLogout = ()=>({
 export const getUser = (username)=> {
     return (dispatch, getState) =>{
         dispatch(getUserStarted());
-        axios.get(`${API_URL}/user/${username}`)
+        axios.get(`${API_URL}/api/user/${username}`)
         .then(res=>{
             
             res.data !== "failed" ? dispatch(getUserSuccess(res.data)) : dispatch(getUserFailure("User Not Found"));

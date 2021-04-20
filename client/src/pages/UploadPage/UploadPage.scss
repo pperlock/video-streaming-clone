@@ -10,6 +10,32 @@
         margin-top:80px;
     }
 
+    &__file{
+
+        &-button{
+            @include input-button(100%, 10px);
+            background-color:black;
+            color:$accent-color;
+            padding-left:10px;
+            padding-right:10px;
+        }
+        &-wrapper{
+            width:100%;
+            padding:50px;
+            box-sizing:border-box;
+        }
+        &-text{
+            text-align:center;
+            font-size:14px;
+        }
+        &-success{
+            font-weight:bold;
+            background-color:rgba(255, 223, 108,0.5);
+            padding:10px;
+            border-radius: 4px;
+        }
+    }
+
     &__title{
         padding:48px 0 20px 0;
     }

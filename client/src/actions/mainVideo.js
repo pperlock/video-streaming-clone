@@ -21,7 +21,7 @@ export const updateMainVideoFailure = error => ({
 export const updateMainVideo = (videoId)=> {
     return (dispatch, getState) =>{
         dispatch(updateMainVideoStarted());
-        axios.get(`${API_URL}/videos/${videoId}`)
+        axios.get(`${API_URL}/api/videos/${videoId}`)
         .then(res=>{
             res.data !== "failed" ? dispatch(updateMainVideoSuccess(res.data)) : dispatch(updateMainVideoFailure("Video Not Found"));
         })

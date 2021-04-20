@@ -4,14 +4,10 @@ const app = express();
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
+const cors = require('cors');
 
 //Middleware used to avoid CORS issues
-app.use((req,res,next)=>{
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "*");
-    next();
-  });
+app.use(cors());
 
 //use .json to solve issues between json and text formats
 app.use(express.json());
@@ -23,30 +19,25 @@ const users = require('./users.json');
 //REQUEST: username
 //PARAMS: :id : id of the video to be returned
 //RETURN: the requested video in json format
-app.get('/user/:username', (req, res)=>{
+app.get('/api/user/:username', (req, res)=>{
     
     //find the video associated with the requested id
     const requestedUser=users.find(user=> user.username===req.params.username);
 
     //return the video associated with the requested id
-    return requestedUser ? res.json(requestedUser) : res.send("failed");
+    return requestedUser ? res.status(200).json(requestedUser) : res.status(401).send("failed");
 });
 
 //REQUEST: get route to return an array of the truncated description of the videos
 //RETURN: an array of videos
-app.route('/videos')
+app.route('/api/videos')
     .get((_req,res)=>{
-        let sideVideos = [{
-            id:"",
-            title:"",
-            channel:"",
-            image:""
-        }]
-        // create the sideVideos arrray from the data file
-        sideVideos = mainVideo.map((video,i) => sideVideos[i] = {id:video.id, title:video.title, channel:video.channel, image:video.image})
+
+        // create the sideVideos array from the data file
+        let sideVideos = mainVideo.map(video => ({id:video.id, title:video.title, channel:video.channel, image:video.image}))
         
         // return the videos
-        res.json(sideVideos);
+        res.status(200).json(sideVideos);
     })
 
     //REQUEST: post route to add a new video to the data store
@@ -78,21 +69,21 @@ app.route('/videos')
 
         //format the json object to a string 
         data = JSON.stringify(mainVideo,null,2);
-        
+       
         //write the formated object to the data store
-        fs.writeFile('./data.json', data, ()=>{
+        fs.writeFileSync('./server/data.json', data, ()=>{
             console.log("Data written to server");
         });
 
         //return the video to the user
-        res.json(newVideo);
+        res.status(201).json(newVideo);
     })
 
 
 //REQUEST: delete request to remove a specific video
 //PARAMS: :videoId=>id of the video to be removed
 //RETURN: the deleted video in json format
-app.delete('/videos/:videoId', (req,res)=>{
+app.delete('/api/videos/:videoId', (req,res)=>{
     
     //find the location in the array of the video that should be removed
     const requestedVideoIndex=mainVideo.findIndex(video=> video.id===req.params.videoId);
@@ -107,7 +98,7 @@ app.delete('/videos/:videoId', (req,res)=>{
     data = JSON.stringify(mainVideo,null,2);
 
     //write the formated object to the data store
-    fs.writeFile('./data.json', data, ()=>{
+    fs.writeFile('./server/data.json', data, ()=>{
         console.log("Data removed from server");
     });
 
@@ -116,13 +107,13 @@ app.delete('/videos/:videoId', (req,res)=>{
 //REQUEST: get route to access a specific video
 //PARAMS: :id : id of the video to be returned
 //RETURN: the requested video in json format
-app.get('/videos/:id', (req,res)=>{
+app.get('/api/videos/:id', (req,res)=>{
     
     //find the video associated with the requested id
     const requestedVideo=mainVideo.find(video=> video.id===req.params.id);
 
     //return the video associated with the requested id
-    return requestedVideo ? res.json(requestedVideo): res.send("failed");
+    return requestedVideo ? res.status(200).json(requestedVideo): res.status(404).send("failed");
 });
 
 
@@ -130,7 +121,7 @@ app.get('/videos/:id', (req,res)=>{
 //PARAMS: :videoId : id of the video to be modified
 //RETURN: the updated video in json format
 
-app.put('/videos/:videoId/likes', (req, res)=>{
+app.put('/api/videos/:videoId/likes', (req, res)=>{
 
     //find the video associated with the requested id
     const requestedVideo=mainVideo.find(video=> video.id===req.params.videoId)
@@ -154,7 +145,7 @@ app.put('/videos/:videoId/likes', (req, res)=>{
     data = JSON.stringify(mainVideo,null,2);
     
     //write the formated object to the data store
-    fs.writeFile('./data.json', data, ()=>{
+    fs.writeFile('./server/data.json', data, ()=>{
         console.log("Data written to server");
     });
 })
@@ -162,7 +153,7 @@ app.put('/videos/:videoId/likes', (req, res)=>{
 //REQUEST: post route to add a new comment for a video
 //PARAMS: :id : id of the video to be updated
 //RETURN: the added comment in json format
-app.post('/videos/:id/comments', (req,res)=>{
+app.post('/api/videos/:id/comments', (req,res)=>{
     
     //the body of the user request should contain the following information
     const {name, comment, userId, avatar} = req.body;
@@ -184,13 +175,13 @@ app.post('/videos/:id/comments', (req,res)=>{
     mainVideo[requestedVideoIndex].comments.push(newComment)
 
     //return the new comment
-    res.json(newComment);
+    res.status(201).json(newComment);
     
     //format the json object to a string 
     data = JSON.stringify(mainVideo,null,2);
     
     //write the formated object to the data store
-    fs.writeFile('./data.json', data, ()=>{
+    fs.writeFile('./server/data.json', data, ()=>{
         console.log("Data written to server");
     });
 });
@@ -198,7 +189,7 @@ app.post('/videos/:id/comments', (req,res)=>{
 //REQUEST: delete request to remove an comment from a specific video
 //PARAMS: :videoId=>id of the video to be updated, :commentId=>id of the comment to be removed
 //RETURN: the deleted comment in json format
-app.delete('/videos/:videoId/comments/:commentId', (req,res)=>{
+app.delete('/api/videos/:videoId/comments/:commentId', (req,res)=>{
     
     //find the location in the array of the video that should be updated
     const requestedVideoIndex=mainVideo.findIndex(video=> video.id===req.params.videoId);
@@ -219,7 +210,7 @@ app.delete('/videos/:videoId/comments/:commentId', (req,res)=>{
     data = JSON.stringify(mainVideo,null,2);
 
     //write the formated object to the data store
-    fs.writeFile('./data.json', data, ()=>{
+    fs.writeFile('./server/data.json', data, ()=>{
         console.log("Data removed from server");
     });
 

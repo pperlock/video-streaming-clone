@@ -22,7 +22,7 @@ export const getSideVideosFailure = error => ({
 export const getSideVideos = (videoId)=> {
     return (dispatch, getState) =>{
         dispatch(getSideVideosStarted());
-        axios.get(`${API_URL}/videos/`)
+        axios.get(`${API_URL}/api/videos/`)
         .then(res=>{
             sessionStorage.setItem("homeVideo", JSON.stringify(res.data[0]));
             dispatch(getSideVideosSuccess(res.data));
