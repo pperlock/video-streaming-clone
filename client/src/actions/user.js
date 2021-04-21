@@ -33,11 +33,10 @@ export const getUser = (username)=> {
         dispatch(getUserStarted());
         axios.get(`${API_URL}/api/user/${username}`)
         .then(res=>{
-            
             res.data !== "failed" ? dispatch(getUserSuccess(res.data)) : dispatch(getUserFailure("User Not Found"));
         })
         .catch(err=>{
-            dispatch(getUserFailure(err.message));
+            dispatch(getUserFailure("User Not Found"));
         })
     }
 }

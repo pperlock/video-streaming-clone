@@ -9,7 +9,7 @@
 
 // Changes to desktop format >=1200px
 @mixin desktop{
-    @media (min-width:1200px){
+    @media (min-width:1280px){
         @content;
     }
 }
