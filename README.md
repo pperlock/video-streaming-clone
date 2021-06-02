@@ -2,6 +2,8 @@
 
 A React project that employs Redux for state management demonstrating the front-end and back-end skills required to build a responsive video streaming site.  A basic login screen has been applied but proper authentication and user sign up is not yet available.  Users can enter the site by providing a username which will allow them to post and delete videos or contribute and delete comments with their username and their avatar.
 
+<img src="images/desktop.png" width:"500" height: "315"/>
+
 Visit the deployed app at 
 # https://video-streaming-clone.herokuapp.com/ 
 and sign in with one of the following usernames: mlyons, gwong, tduncan, cjones 
